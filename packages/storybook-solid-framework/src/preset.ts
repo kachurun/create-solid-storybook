@@ -11,7 +11,6 @@ import { dirname, join } from 'node:path';
 
 import type { StorybookConfig } from './types';
 import type { PresetProperty } from '@storybook/types';
-// import { solidDocgen } from './plugins/solid-docgen';
 
 // Helper for getting the location of dependencies.
 const getAbsolutePath = <I extends string>(input: I): I =>
@@ -24,7 +23,7 @@ const getAbsolutePath = <I extends string>(input: I): I =>
  */
 export const core: PresetProperty<'core', StorybookConfig> = {
     builder: getAbsolutePath('@storybook/builder-vite'),
-    renderer: getAbsolutePath('sb-solid'),
+    renderer: getAbsolutePath('storybook-solid-renderer'),
 };
 
 /**
@@ -40,9 +39,6 @@ export const viteFinal: StorybookConfig['viteFinal'] = async(config) => {
         const { default: solidPlugin } = await import('vite-plugin-solid');
 
         plugins.push(solidPlugin());
-
-    // Docgen plugin is prioritized as first pluging to be loaded for having file raw code.
-    // plugins.unshift(solidDocgen());
     }
 
     return config;

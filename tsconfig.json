@@ -3,5 +3,5 @@
     "compilerOptions": {
         "noEmit": true
     },
-    "references": [{ "path": "./packages/framework" }, { "path": "./packages/renderer" }]
+    "references": [{ "path": "./packages/framework" }, { "path": "./packages/renderer" }, { "path": "./apps/example" }]
 }

@@ -1,23 +1,24 @@
 {
-    "name": "sb-solid",
+    "name": "storybook-solid-renderer",
     "version": "0.0.0",
     "main": "preset.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "turbo run build",
+        "dev": "turbo run dev",
         "types": "bun run tsc -b"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/kachurun/sb-solid-vite.git"
+        "url": "git+https://github.com/kachurun/storybook-solid-framework.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/kachurun/sb-solid-vite/issues"
+        "url": "https://github.com/kachurun/storybook-solid-framework/issues"
     },
-    "homepage": "https://github.com/kachurun/sb-solid-vite#readme",
+    "homepage": "https://github.com/kachurun/storybook-solid-framework#readme",
     "description": "SolidJS integration with Storybook",
     "packageManager": "bun@1.1.13",
     "workspaces": [

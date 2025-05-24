@@ -1,18 +1,19 @@
 {
-    "name": "sb-solid",
+    "name": "storybook-solid-renderer",
     "version": "8.6.0",
     "description": "Storybook SolidJS renderer",
     "keywords": [
-        "storybook"
+        "storybook",
+        "solidjs"
     ],
-    "homepage": "https://github.com/kachurun/sb-solid/tree/main/renderers/solid",
+    "homepage": "https://github.com/kachurun/storybook-solid-renderer",
     "bugs": {
-        "url": "https://github.com/kachurun/sb-solid/issues"
+        "url": "https://github.com/kachurun/storybook-solid-renderer/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/kachurun/sb-solid.git",
-        "directory": "renderers/solid"
+        "url": "https://github.com/kachurun/storybook-solid-renderer.git",
+        "directory": "packages/renderer"
     },
     "funding": {
         "type": "opencollective",
@@ -42,7 +43,8 @@
     ],
     "scripts": {
         "prepack": "bun run build --optimized --reset",
-        "build": "tsup src/index.ts src/preset.ts src/entry-preview.tsx src/entry-preview-docs.tsx --format esm,cjs --out-dir dist",
+        "build": "tsup",
+        "dev": "tsup --watch",
         "postbuild": "bun run types",
         "types": "tsc -b"
     },
@@ -56,6 +58,7 @@
         "async-mutex": "^0.5.0"
     },
     "devDependencies": {
+        "esbuild-plugin-solid": "^0.6.0",
         "storybook": "^8.6.0",
         "type-fest": "^4.41.0"
     },
@@ -71,14 +74,5 @@
     },
     "publishConfig": {
         "access": "public"
-    },
-    "bundler": {
-        "entries": [
-            "./src/index.ts",
-            "./src/preset.ts",
-            "./src/entry-preview.tsx",
-            "./src/entry-preview-docs.tsx"
-        ],
-        "platform": "browser"
     }
 }

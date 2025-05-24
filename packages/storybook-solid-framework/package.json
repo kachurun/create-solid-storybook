@@ -1,19 +1,18 @@
 {
-    "name": "sb-solid-vite",
+    "name": "storybook-solid-framework",
     "version": "8.6.0",
-
     "description": "SolidJS integration with Storybook",
     "keywords": [
         "storybook",
         "solidjs"
     ],
-    "homepage": "https://github.com/kachurun/sb-solid",
+    "homepage": "https://github.com/kachurun/storybook-solid-renderer",
     "bugs": {
-        "url": "https://github.com/kachurun/sb-solid/issues"
+        "url": "https://github.com/kachurun/storybook-solid-renderer/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/kachurun/sb-solid.git",
+        "url": "https://github.com/kachurun/storybook-solid-renderer.git",
         "directory": "packages/framework"
     },
     "funding": {
@@ -46,18 +45,17 @@
     ],
     "scripts": {
         "prepack": "bun run build --optimized --reset",
-        "build": "tsup src/index.ts src/preset.ts --format esm,cjs --out-dir dist",
+        "build": "tsup",
+        "dev": "tsup --watch",
         "postbuild": "bun run types",
         "types": "tsc -b"
     },
-    "dependencies": {
-        "@storybook/builder-vite": "next",
-        "@storybook/types": "next",
-        "sb-solid": "workspace:*"
-    },
     "devDependencies": {
+        "@storybook/types": "^8.6.14",
         "solid-js": "~1.9.0",
         "storybook": "^8.6.0",
+        "storybook-solid-renderer": "workspace:*",
+        "tsup-preset-solid": "^2.2.0",
         "vite": "^4.0.0 || ^5.0.0 || ^6.0.0"
     },
     "peerDependencies": {
