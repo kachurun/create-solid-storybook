@@ -1,0 +1,84 @@
+{
+    "name": "sb-solid",
+    "version": "8.6.0",
+    "description": "Storybook SolidJS renderer",
+    "keywords": [
+        "storybook"
+    ],
+    "homepage": "https://github.com/kachurun/sb-solid/tree/main/renderers/solid",
+    "bugs": {
+        "url": "https://github.com/kachurun/sb-solid/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kachurun/sb-solid.git",
+        "directory": "renderers/solid"
+    },
+    "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/storybook"
+    },
+    "license": "MIT",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./preset": "./preset.js",
+        "./dist/entry-preview.mjs": "./dist/entry-preview.mjs",
+        "./dist/entry-preview-docs.mjs": "./dist/entry-preview-docs.mjs",
+        "./package.json": "./package.json"
+    },
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*",
+        "template/**/*",
+        "README.md",
+        "*.js",
+        "*.d.ts"
+    ],
+    "scripts": {
+        "prepack": "bun run build --optimized --reset",
+        "build": "tsup src/index.ts src/preset.ts src/entry-preview.tsx src/entry-preview-docs.tsx --format esm,cjs --out-dir dist",
+        "postbuild": "bun run types",
+        "types": "tsc -b"
+    },
+    "dependencies": {
+        "@babel/standalone": "^7.26.2",
+        "@types/babel__standalone": "^7.1.9",
+        "@storybook/docs-tools": "^8.6.0",
+        "@storybook/global": "^5.0.0",
+        "@storybook/preview-api": "^8.6.0",
+        "@storybook/types": "^8.6.0",
+        "async-mutex": "^0.5.0"
+    },
+    "devDependencies": {
+        "storybook": "^8.6.0",
+        "type-fest": "^4.41.0"
+    },
+    "peerDependencies": {
+        "solid-js": "~1.9.0",
+        "@storybook/test": "^8.6.0",
+        "storybook": "^8.6.0"
+    },
+    "peerDependenciesMeta": {
+        "@storybook/test": {
+            "optional": true
+        }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "bundler": {
+        "entries": [
+            "./src/index.ts",
+            "./src/preset.ts",
+            "./src/entry-preview.tsx",
+            "./src/entry-preview-docs.tsx"
+        ],
+        "platform": "browser"
+    }
+}

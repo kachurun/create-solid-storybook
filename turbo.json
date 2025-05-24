@@ -1,0 +1,21 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "tasks": {
+        "build": {
+            "outputs": [
+                "packages/*/dist/**",
+                "apps/*/dist/**",
+                "apps/*/storybook-static/**"
+            ],
+            "dependsOn": ["^build"]
+        },
+        "lint": {},
+        "dev": {
+            "cache": false,
+            "persistent": true
+        },
+        "clean": {
+            "cache": false
+        }
+    }
+}

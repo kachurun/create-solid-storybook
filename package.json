@@ -1,0 +1,36 @@
+{
+    "name": "sb-solid",
+    "version": "0.0.0",
+    "main": "preset.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "turbo run build",
+        "types": "bun run tsc -b"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kachurun/sb-solid-vite.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kachurun/sb-solid-vite/issues"
+    },
+    "homepage": "https://github.com/kachurun/sb-solid-vite#readme",
+    "description": "SolidJS integration with Storybook",
+    "packageManager": "bun@1.1.13",
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "devDependencies": {
+        "@flexbe/eslint-config": "^1.0.9",
+        "@tsconfig/strictest": "^2.0.5",
+        "bun": "^1.2.14",
+        "eslint": "^9.27.0",
+        "tsup": "^8.5.0",
+        "turbo": "^2.5.3",
+        "vitest": "^3.1.4"
+    }
+}
