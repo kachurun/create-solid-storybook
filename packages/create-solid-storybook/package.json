@@ -1,0 +1,46 @@
+{
+    "name": "create-solid-storybook",
+    "description": "Scaffold Storybook projects with SolidJS integration",
+    "version": "8.6.6",
+    "scripts": {
+        "build": "cd cli/template && bun run build",
+        "prepublishOnly": "cp ../../README.md ./README.md && bun run build && bun run clean-publish",
+        "clean-publish": "rm -rf cli/template/node_modules cli/template/storybook-static cli/template/.turbo cli/*.log cli/dist && echo '🧹 cleaned cli dir'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kachurun/create-solid-storybook.git",
+        "directory": "packages/create-solid-storybook"
+    },
+    "keywords": [
+        "solidjs",
+        "solid",
+        "storybook",
+        "storybook-scaffold",
+        "storybook-addon",
+        "storybook-integration",
+        "scaffold",
+        "vite",
+        "solid-vite",
+        "solid-storybook",
+        "frontend",
+        "javascript",
+        "typescript"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kachurun/create-solid-storybook/issues"
+    },
+    "homepage": "https://github.com/kachurun/create-solid-storybook#readme",
+    "publishConfig": {
+        "access": "public"
+    },
+    "bin": {
+        "create-solid-storybook": "./cli/index.mjs"
+    },
+    "files": [
+        "cli/**",
+        "README.md"
+    ]
+}

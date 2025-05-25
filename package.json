@@ -1,14 +1,17 @@
 {
-    "name": "create-solid-storybook",
-    "version": "8.6.4",
+    "name": "@kachurun/create-solid-storybook",
+    "version": "8.6.6",
+    "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "turbo run build",
         "dev": "turbo run dev",
         "types": "bun run tsc -b",
         "clean": "rm -rf .turbo && rm -rf node_modules",
-        "prepublishOnly": "bun run build && bun run clean-publish",
-        "clean-publish": "rm -rf cli/template/node_modules cli/template/storybook-static cli/template/.turbo cli/*.log cli/dist && echo '🧹 cleaned cli dir'"
+        "prepublishOnly": "bun run build",
+        "release:patch": "bun run scripts/release.js patch",
+        "release:minor": "bun run scripts/release.js minor",
+        "release:major": "bun run scripts/release.js major"
     },
     "repository": {
         "type": "git",
@@ -38,11 +41,10 @@
     "description": "SolidJS integration with Storybook",
     "packageManager": "bun@1.1.13",
     "workspaces": [
-        "apps/*",
-        "packages/*",
-        "cli/template"
+        "packages/*"
     ],
     "devDependencies": {
+        "@changesets/changelog-github": "^0.5.1",
         "@changesets/cli": "^2.29.4",
         "@flexbe/eslint-config": "^1.0.9",
         "@tsconfig/strictest": "^2.0.5",
@@ -51,15 +53,5 @@
         "tsup": "^8.5.0",
         "turbo": "^2.5.3",
         "vitest": "^3.1.4"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "bin": {
-        "create-solid-storybook": "./cli/index.mjs"
-    },
-    "files": [
-        "cli/**",
-        "README.md"
-    ]
+    }
 }

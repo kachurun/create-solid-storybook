@@ -3,9 +3,7 @@
     "tasks": {
         "build": {
             "outputs": [
-                "packages/*/dist/**",
-                "apps/*/dist/**",
-                "apps/*/storybook-static/**"
+                "packages/*/dist/**"
             ],
             "dependsOn": ["^build"]
         },
