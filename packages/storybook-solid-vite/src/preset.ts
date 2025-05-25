@@ -23,7 +23,7 @@ const getAbsolutePath = <I extends string>(input: I): I =>
  */
 export const core: PresetProperty<'core', StorybookConfig> = {
     builder: getAbsolutePath('@storybook/builder-vite'),
-    renderer: getAbsolutePath('storybook-solid-renderer'),
+    renderer: getAbsolutePath('@kachurun/storybook-solid'),
 };
 
 /**

@@ -1,4 +1,4 @@
-import type { Preview } from 'storybook-solid-renderer';
+import type { Preview } from '@kachurun/storybook-solid';
 
 export const preview: Preview = {
     tags: ['autodocs'],

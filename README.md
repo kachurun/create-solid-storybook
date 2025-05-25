@@ -28,10 +28,10 @@ This will create a new SolidJS project pre-configured with Storybook in the spec
 
 ---
 
-### 2. `storybook-solid-framework` and `storybook-solid-renderer`
+### 2. `@kachurun/storybook-solid-vite` and `@kachurun/storybook-solid`
 
-- `storybook-solid-framework` - A custom Storybook framework for SolidJS, built to work with Vite. This package provides the necessary configuration and integration to use Storybook with SolidJS components.
-- `storybook-solid-renderer` - The renderer logic for Storybook to render SolidJS stories. This package handles the low-level rendering and integration with Storybook's core.
+- `@kachurun/storybook-solid-vite` - A custom Storybook framework for SolidJS, built to work with Vite. This package provides the necessary configuration and integration to use Storybook with SolidJS components.
+- `@kachurun/storybook-solid` - The renderer logic for Storybook to render SolidJS stories. This package handles the low-level rendering and integration with Storybook's core.
 
 #### How to use manually
 
@@ -44,7 +44,7 @@ Add this as a dependency in your Storybook project to enable SolidJS support.
 
 **Install dependencies**
 
-- Install `storybook`, `storybook-solid-framework`, `storybook-solid-renderer`, and Storybook addons you need (e.g., `@storybook/addon-links`, `@storybook/addon-essentials`, etc.).
+- Install `storybook`, `@kachurun/storybook-solid-vite`, `@kachurun/storybook-solid`, and Storybook addons you need (e.g., `@storybook/addon-links`, `@storybook/addon-essentials`, etc.).
 
 **Configure Storybook**
 
@@ -54,7 +54,7 @@ Add this as a dependency in your Storybook project to enable SolidJS support.
 import { createRequire } from 'module';
 import { dirname, join } from 'path';
 import { mergeConfig } from 'vite';
-import type { StorybookConfig } from 'storybook-solid-framework';
+import type { StorybookConfig } from '@kachurun/storybook-solid-vite';
 
 const require = createRequire(import.meta.url);
 function getAbsolutePath(value: string): string {
@@ -71,7 +71,7 @@ export default <StorybookConfig>{
     getAbsolutePath('@storybook/addon-interactions'),
   ],
   framework: {
-    name: 'storybook-solid-framework',
+    name: '@kachurun/storybook-solid-vite',
     options: {},
   },
   async viteFinal(config) {
@@ -94,7 +94,7 @@ export default <StorybookConfig>{
 ```tsx
 import { action } from '@storybook/addon-actions';
 import { createEffect, createSignal } from 'solid-js';
-import type { Meta, StoryObj } from 'storybook-solid-renderer';
+import type { Meta, StoryObj } from '@kachurun/storybook-solid';
 
 const Counter = (props: { count: number; onIncrement?: () => void; onDecrement?: () => void }) => {
   const [count, setCount] = createSignal(props.count);
@@ -147,8 +147,8 @@ This will start the Storybook development server and open the UI in your browser
 
 ## Repository Structure
 
-- `packages/storybook-solid-framework` – SolidJS framework integration for Storybook
-- `packages/storybook-solid-renderer` – SolidJS renderer for Storybook
+- `packages/storybook-solid-vite` – SolidJS framework integration for Storybook
+- `packages/storybook-solid` – SolidJS renderer for Storybook
 - `cli/` – Contains the `create-solid-storybook` CLI scaffold
 
 ## License

@@ -1,6 +1,6 @@
 {
     "name": "create-solid-storybook",
-    "version": "8.6.0",
+    "version": "8.6.1",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "turbo run build",
@@ -10,15 +10,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/kachurun/storybook-solid-framework.git"
+        "url": "git+https://github.com/kachurun/create-solid-storybook.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/kachurun/storybook-solid-framework/issues"
+        "url": "https://github.com/kachurun/create-solid-storybook/issues"
     },
-    "homepage": "https://github.com/kachurun/storybook-solid-framework#readme",
+    "homepage": "https://github.com/kachurun/create-solid-storybook#readme",
     "description": "SolidJS integration with Storybook",
     "packageManager": "bun@1.1.13",
     "workspaces": [

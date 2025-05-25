@@ -2,7 +2,7 @@ import { createRequire } from 'module'; // Import createRequire
 import { dirname, join } from 'path';
 import { mergeConfig } from 'vite';
 
-import type { StorybookConfig } from 'storybook-solid-framework';
+import type { StorybookConfig } from '@kachurun/storybook-solid-vite';
 
 const require = createRequire(import.meta.url); // Create a require function
 
@@ -25,7 +25,7 @@ export default <StorybookConfig>{
         getAbsolutePath('@storybook/addon-interactions'),
     ],
     framework: {
-        name: 'storybook-solid-framework',
+        name: '@kachurun/storybook-solid-vite',
         options: {},
     },
     async viteFinal(config) {
