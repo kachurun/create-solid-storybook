@@ -4,7 +4,7 @@ This package provides everything you need to use [Storybook](https://storybook.j
 
 ## Getting Started
 
-The easiest way to get started is to use the `create-storybook-solid` CLI, which will create a new SolidJS project pre-configured with Storybook in just one command:
+The easiest way to get started is to use the `create-solid-storybook` CLI, which will create a new SolidJS project pre-configured with Storybook in just one command:
 
 ```sh
 npx create-solid-storybook <folder-name>
@@ -14,7 +14,7 @@ Replace `<folder-name>` with your desired project directory name.
 
 ## Packages
 
-### 1. `create-storybook-solid`
+### 1. `create-solid-storybook`
 
 A CLI tool to scaffold a new Storybook project for SolidJS.
 
@@ -149,7 +149,7 @@ This will start the Storybook development server and open the UI in your browser
 
 - `packages/storybook-solid-framework` – SolidJS framework integration for Storybook
 - `packages/storybook-solid-renderer` – SolidJS renderer for Storybook
-- `cli/` – Contains the `create-storybook-solid` CLI scaffold
+- `cli/` – Contains the `create-solid-storybook` CLI scaffold
 
 ## License
 

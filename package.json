@@ -1,7 +1,6 @@
 {
-    "name": "create-storybook-solid",
+    "name": "create-solid-storybook",
     "version": "8.6.0",
-    "main": "preset.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "turbo run build",
@@ -39,10 +38,10 @@
         "access": "public"
     },
     "bin": {
-        "create-solid-storybook": "./cli/index.js"
+        "create-solid-storybook": "./cli/index.mjs"
     },
     "files": [
-        "cli",
-        "packages"
+        "cli/**",
+        "README.md"
     ]
 }
