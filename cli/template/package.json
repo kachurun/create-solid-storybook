@@ -1,16 +1,15 @@
 {
-    "name": "@kachurun/storybook-solid",
+    "name": "@kachurun/storybook-solid-template",
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "dev": "npm run storybook",
         "build": "storybook build",
         "storybook": "storybook dev -p 6006",
         "preview-storybook": "serve storybook-static"
     },
     "devDependencies": {
-        "storybook-solid-vite": "latest",
-        "storybook-solid": "latest",
+        "@kachurun/storybook-solid-vite": "latest",
+        "@kachurun/storybook-solid": "latest",
         "@chromatic-com/storybook": "^3.2.6",
         "@storybook/addon-essentials": "^8.6.14",
         "@storybook/addon-interactions": "^8.6.14",
