@@ -10,6 +10,8 @@
         "preview-storybook": "serve storybook-static"
     },
     "devDependencies": {
+        "storybook-solid-framework": "latest",
+        "storybook-solid-renderer": "latest",
         "@chromatic-com/storybook": "^3.2.6",
         "@storybook/addon-essentials": "^8.6.14",
         "@storybook/addon-interactions": "^8.6.14",
@@ -23,8 +25,6 @@
         "@types/node": "^22.15.21",
         "serve": "^14.2.4",
         "solid-js": "^1.9.7",
-        "storybook-solid-framework": "workspace:*",
-        "storybook-solid-renderer": "workspace:*",
         "vite": "^6.3.5",
         "vite-plugin-solid": "^2.11.6"
     }

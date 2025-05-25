@@ -5,10 +5,9 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const repoRoot = join(__dirname, '..');
-const exampleDir = join(repoRoot, 'apps', 'example');
+const exampleDir = join(__dirname, 'template');
 
-const target = process.argv[2] || 'solid-storybook-example';
+const target = process.argv[2] || 'solid-storybook';
 const cwd = process.cwd();
 const outputDir = join(cwd, target);
 

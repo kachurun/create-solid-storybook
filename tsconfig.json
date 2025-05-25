@@ -3,5 +3,12 @@
     "compilerOptions": {
         "noEmit": true
     },
-    "references": [{ "path": "./packages/framework" }, { "path": "./packages/renderer" }, { "path": "./apps/example" }]
+    "references": [
+        {
+            "path": "./packages/framework"
+        },
+        {
+            "path": "./packages/renderer"
+        }
+    ]
 }

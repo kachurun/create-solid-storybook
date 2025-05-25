@@ -40,5 +40,9 @@
     },
     "bin": {
         "create-solid-storybook": "./cli/index.js"
-    }
+    },
+    "files": [
+        "cli",
+        "packages"
+    ]
 }
