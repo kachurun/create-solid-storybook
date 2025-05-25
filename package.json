@@ -6,7 +6,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "turbo run build",
         "dev": "turbo run dev",
-        "types": "bun run tsc -b"
+        "types": "bun run tsc -b",
+        "clean": "rm -rf .turbo && rm -rf node_modules"
     },
     "repository": {
         "type": "git",

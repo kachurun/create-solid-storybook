@@ -14,7 +14,7 @@ import type { ArgTypesEnhancer } from '@storybook/types';
 export const parameters = {
     docs: {
         story: { inline: true },
-        extractComponentDescription, // TODO solid-docgen plugin needs to be created.
+        extractComponentDescription,
     },
 };
 
