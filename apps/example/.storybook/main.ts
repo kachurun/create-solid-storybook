@@ -16,9 +16,8 @@ function getAbsolutePath(value: string): string {
 
 
 export default <StorybookConfig>{
-    stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.tsx'],
+    stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx'],
     addons: [
-        getAbsolutePath('@storybook/addon-docs'),
         getAbsolutePath('@storybook/addon-links'),
         getAbsolutePath('@storybook/addon-essentials'),
         getAbsolutePath('@storybook/addon-viewport'),
