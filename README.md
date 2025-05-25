@@ -42,6 +42,16 @@ npx create-solid-storybook my-solid-app
 
 Creates a fully working Solid + Storybook 8 project using Vite and essential addons.
 
+> **Note:**
+> In some monorepo setups, if you use a package manager other than npm (such as `bun` or `pnpm`), you may encounter errors related to peerDependencies after scaffolding. In that case, run your package manager's install command in the generated folder:
+>
+> ```bash
+> cd <folder-name>
+> bun install # or pnpm install, depends on your package manager.
+> ```
+>
+> In the worst case, you may need to manually update the `package.json` file in your new project to align dependency versions with those used in your monorepo or workspace.
+
 ---
 
 ### 2. `@kachurun/storybook-solid-vite` & `@kachurun/storybook-solid`
@@ -65,6 +75,7 @@ If you want to wire it up yourself:
 
 ```bash
 npm install --save-dev \
+  storybook \
   @kachurun/storybook-solid-vite \
   @kachurun/storybook-solid \
   @storybook/addon-essentials \

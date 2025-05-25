@@ -26,6 +26,16 @@ cd <folder-name>
 npm run storybook
 ```
 
+> **Note:**
+> In some monorepo setups, if you use a package manager other than npm (such as `bun` or `pnpm`), you may encounter errors related to peerDependencies after scaffolding. In that case, run your package manager's install command in the generated folder:
+>
+> ```bash
+> cd <folder-name>
+> bun install # or pnpm install, etc.
+> ```
+>
+> In the worst case, you may need to manually update the `package.json` file in your new project to align dependency versions with those used in your monorepo or workspace.
+
 ---
 
 ## 📦 Packages
