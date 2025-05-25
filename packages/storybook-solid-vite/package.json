@@ -1,19 +1,30 @@
 {
     "name": "@kachurun/storybook-solid-vite",
-    "version": "8.6.4",
+    "version": "8.6.5",
     "description": "SolidJS integration with Storybook",
     "keywords": [
         "storybook",
-        "solidjs"
+        "solidjs",
+        "solid",
+        "storybook-addon",
+        "storybook-integration",
+        "component-library",
+        "ui-components",
+        "vite",
+        "solid-vite",
+        "solid-storybook",
+        "frontend",
+        "javascript",
+        "typescript"
     ],
-    "homepage": "https://github.com/kachurun/storybook-solid",
+    "homepage": "https://github.com/kachurun/create-solid-storybook",
     "bugs": {
-        "url": "https://github.com/kachurun/storybook-solid/issues"
+        "url": "https://github.com/kachurun/create-solid-storybook/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/kachurun/storybook-solid.git",
-        "directory": "packages/framework"
+        "url": "https://github.com/kachurun/create-solid-storybook.git",
+        "directory": "packages/storybook-solid-vite"
     },
     "funding": {
         "type": "opencollective",

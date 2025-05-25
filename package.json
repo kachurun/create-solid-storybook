@@ -14,7 +14,21 @@
         "type": "git",
         "url": "git+https://github.com/kachurun/create-solid-storybook.git"
     },
-    "keywords": [],
+    "keywords": [
+        "solidjs",
+        "solid",
+        "storybook",
+        "storybook-addon",
+        "storybook-integration",
+        "component-library",
+        "ui-components",
+        "vite",
+        "solid-vite",
+        "solid-storybook",
+        "frontend",
+        "javascript",
+        "typescript"
+    ],
     "author": "",
     "license": "ISC",
     "bugs": {
@@ -29,6 +43,7 @@
         "cli/template"
     ],
     "devDependencies": {
+        "@changesets/cli": "^2.29.4",
         "@flexbe/eslint-config": "^1.0.9",
         "@tsconfig/strictest": "^2.0.5",
         "bun": "^1.2.14",
