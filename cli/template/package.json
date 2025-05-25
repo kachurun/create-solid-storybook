@@ -25,7 +25,8 @@
         "serve": "^14.2.4",
         "solid-js": "^1.9.7",
         "vite": "^6.3.5",
-        "vite-plugin-solid": "^2.11.6"
+        "vite-plugin-solid": "^2.11.6",
+        "@tsconfig/strictest": "^2.0.0"
     },
     "peerDependencies": {
         "@storybook/addon-essentials": "^8.0.0",
