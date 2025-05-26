@@ -2,7 +2,7 @@
     "name": "create-solid-storybook",
     "description": "Scaffold Storybook projects with SolidJS integration",
     "private": false,
-    "version": "8.6.6",
+    "version": "8.6.7",
     "scripts": {
         "prepublishOnly": "cp ../../README.md ./README.md && bun run clean-publish",
         "clean-publish": "rm -rf cli/template/node_modules cli/template/storybook-static cli/template/.turbo cli/*.log cli/dist && echo '🧹 cleaned cli dir'"
