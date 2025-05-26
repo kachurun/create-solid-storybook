@@ -3,7 +3,7 @@ storybook-static
 dist
 **/dist/
 
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 .turbo
 .env
 .env.local
