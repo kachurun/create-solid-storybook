@@ -1,0 +1,47 @@
+{
+    "name": "@kachurun/storybook-solid-template",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "build": "storybook build",
+        "storybook": "storybook dev -p 6006",
+        "preview-storybook": "serve storybook-static"
+    },
+    "devDependencies": {
+        "@kachurun/storybook-solid-vite": "latest",
+        "@kachurun/storybook-solid": "latest",
+        "@chromatic-com/storybook": "^3.2.6",
+        "@storybook/addon-essentials": "^9.0.0-rc.4",
+        "@storybook/addon-interactions": "^9.0.0-rc.4",
+        "@storybook/addon-links": "^9.0.0-rc.4",
+        "@storybook/builder-vite": "^9.0.0-rc.4",
+        "@storybook/core-common": "^9.0.0-rc.4",
+        "@storybook/core-server": "^9.0.0-rc.4",
+        "@storybook/html": "^9.0.0-rc.4",
+        "@storybook/html-vite": "^9.0.0-rc.4",
+        "@storybook/manager": "^9.0.0-rc.4",
+        "@storybook/test": "^9.0.0-rc.4",
+        "@types/node": "^22.15.21",
+        "serve": "^14.2.4",
+        "solid-js": "^1.9.7",
+        "vite": "^6.3.5",
+        "vite-plugin-solid": "^2.11.6",
+        "@tsconfig/strictest": "^2.0.0"
+    },
+    "peerDependencies": {
+        "@storybook/addon-essentials": "^9.0.0-rc.4",
+        "@storybook/addon-interactions": "^9.0.0-rc.4",
+        "@storybook/addon-links": "^9.0.0-rc.4",
+        "@storybook/builder-vite": "^9.0.0-rc.4",
+        "@storybook/core-common": "^9.0.0-rc.4",
+        "@storybook/core-server": "^9.0.0-rc.4",
+        "@storybook/html": "^9.0.0-rc.4",
+        "@storybook/html-vite": "^9.0.0-rc.4",
+        "@storybook/manager": "^9.0.0-rc.4",
+        "@storybook/test": "^9.0.0-rc.4",
+        "solid-js": "^1.7.0",
+        "vite": "^5.0.0 || ^6.0.0",
+        "vite-plugin-solid": "^2.0.0",
+        "@types/node": "*"
+    }
+}

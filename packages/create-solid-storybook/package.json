@@ -3,6 +3,7 @@
     "description": "Scaffold Storybook projects with SolidJS integration",
     "private": false,
     "version": "8.6.7",
+    "main": "./index.mjs",
     "scripts": {
         "prepublishOnly": "cp ../../README.md ./README.md && bun run clean-publish",
         "clean-publish": "rm -rf cli/template/node_modules cli/template/storybook-static cli/template/.turbo cli/*.log cli/dist && echo '🧹 cleaned cli dir'"
@@ -37,10 +38,11 @@
         "access": "public"
     },
     "bin": {
-        "create-solid-storybook": "./cli/index.mjs"
+        "create-solid-storybook": "./index.mjs"
     },
     "files": [
-        "cli/**",
-        "README.md"
+        "index.mjs",
+        "README.md",
+        "template/**"
     ]
 }

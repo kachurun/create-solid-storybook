@@ -5,7 +5,7 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const exampleDir = join(__dirname, 'template');
+const exampleDir = join(__dirname, '../template');
 
 const target = process.argv[2] || 'solid-storybook';
 const cwd = process.cwd();

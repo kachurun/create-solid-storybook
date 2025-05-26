@@ -177,10 +177,10 @@ export default meta
 ```
 .
 ├── packages/
+│   └── create-solid-storybook/ ← CLI tool to scaffold a new Storybook project for SolidJS
+|       └── template/           ← Template project copied to users
 │   ├── storybook-solid-vite/   ← SolidJS framework adapter for Storybook
 │   └── storybook-solid/        ← SolidJS renderer for Storybook
-├── cli/                        ← CLI source for create-solid-storybook
-│   └── template/               ← Template project copied to users
 ```
 
 ---
