@@ -60,7 +60,7 @@
         "build": "tsup",
         "dev": "tsup --watch",
         "postbuild": "bun run types",
-        "types": "tsc -b"
+        "types": "tsc -b tsconfig.build.json"
     },
     "devDependencies": {
         "@kachurun/storybook-solid": "workspace:*",

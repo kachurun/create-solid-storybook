@@ -58,7 +58,7 @@
         "build": "tsup",
         "dev": "tsup --watch",
         "postbuild": "bun run types",
-        "types": "tsc -b"
+        "types": "tsc -b tsconfig.build.json"
     },
     "dependencies": {
         "@babel/standalone": "^7.26.2",
