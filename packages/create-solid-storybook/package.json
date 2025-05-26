@@ -4,8 +4,7 @@
     "private": false,
     "version": "8.6.6",
     "scripts": {
-        "build": "cd cli/template && bun run build",
-        "prepublishOnly": "cp ../../README.md ./README.md && bun run build && bun run clean-publish",
+        "prepublishOnly": "cp ../../README.md ./README.md && bun run clean-publish",
         "clean-publish": "rm -rf cli/template/node_modules cli/template/storybook-static cli/template/.turbo cli/*.log cli/dist && echo '🧹 cleaned cli dir'"
     },
     "repository": {
