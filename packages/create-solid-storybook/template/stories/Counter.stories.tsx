@@ -1,7 +1,7 @@
-import { action } from '@storybook/addon-actions';
 import { createEffect, createSignal } from 'solid-js';
+import { action } from 'storybook/actions';
 
-import type { Meta, StoryObj } from '@kachurun/storybook-solid';
+import type { Meta, StoryObj } from '@kachurun/storybook-solid-vite';
 import './Counter.stories.css';
 
 const Counter = (props: { count: number; onIncrement?: () => void; onDecrement?: () => void }) => {

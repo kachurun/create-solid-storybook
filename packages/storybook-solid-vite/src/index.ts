@@ -1,2 +1,2 @@
-// export * from '@kachurun/storybook-solid';
+export * from '@kachurun/storybook-solid';
 export * from './types';

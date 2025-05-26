@@ -46,6 +46,7 @@
         "@changesets/changelog-github": "^0.5.1",
         "@changesets/cli": "^2.29.4",
         "@flexbe/eslint-config": "^1.0.9",
+        "@storybook/addon-docs": "^9.0.0-rc.4",
         "@tsconfig/strictest": "^2.0.5",
         "bun": "^1.2.14",
         "eslint": "^9.27.0",

@@ -2,7 +2,7 @@
     "name": "create-solid-storybook",
     "description": "Scaffold Storybook projects with SolidJS integration",
     "private": false,
-    "version": "8.6.7",
+    "version": "9.0.0-next.0",
     "main": "./index.mjs",
     "scripts": {
         "prepublishOnly": "cp ../../README.md ./README.md && bun run clean-publish",
@@ -35,7 +35,8 @@
     },
     "homepage": "https://github.com/kachurun/create-solid-storybook#readme",
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "tag": "next"
     },
     "bin": {
         "create-solid-storybook": "./index.mjs"

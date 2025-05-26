@@ -1,17 +1,15 @@
-import type { Preview } from '@kachurun/storybook-solid';
+export const tags = ['autodocs'];
 
-export const preview: Preview = {
-    tags: ['autodocs'],
-    parameters: {
-        // automatically create action args for all props that start with "on"
-        actions: { argTypesRegex: '^on.*' },
-        controls: {
-            matchers: {
-                color: /(background|color)$/i,
-                date: /Date$/,
-            },
+export const parameters = {
+    // automatically create action args for all props that start with "on"
+    actions: { argTypesRegex: '^on.*' },
+    controls: {
+        matchers: {
+            color: /(background|color)$/i,
+            date: /Date$/,
         },
     },
+    docs: {
+        codePanel: true,
+    },
 };
-
-export default preview;
