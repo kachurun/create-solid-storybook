@@ -2,6 +2,7 @@
     "name": "@kachurun/storybook-solid-vite",
     "version": "8.6.6",
     "description": "SolidJS integration with Storybook",
+    "private": false,
     "keywords": [
         "storybook",
         "solidjs",

@@ -1,6 +1,7 @@
 {
     "name": "@kachurun/storybook-solid",
     "version": "8.6.6",
+    "private": false,
     "description": "Storybook SolidJS renderer",
     "keywords": [
         "storybook",

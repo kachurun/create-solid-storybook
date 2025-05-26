@@ -7,3 +7,14 @@ dist
 .env.test.local
 .env.production.local
 storybook-static
+
+# Bun lock file
+bun.lockb
+
+# Ignore build output
+**/dist/
+
+# Do not ignore workflows
+dist/
+!.github/
+!.github/workflows/
