@@ -1,5 +1,5 @@
 import { hasVitePlugins } from '@storybook/builder-vite';
-import { dirname, join } from 'node:path';
+import { dirname, join } from 'path';
 
 /**
  * A preset is a configuration that enables developers to quickly set up and

@@ -5,10 +5,10 @@
     },
     "references": [
         {
-            "path": "./packages/framework"
+            "path": "./packages/storybook-solid-vite"
         },
         {
-            "path": "./packages/renderer"
+            "path": "./packages/storybook-solid"
         }
     ]
 }

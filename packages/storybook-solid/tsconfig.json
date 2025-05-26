@@ -8,5 +8,6 @@
         "jsxImportSource": "solid-js",
         "lib": ["ESNext", "DOM"]
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx"]
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": ["dist"]
 }

@@ -6,7 +6,7 @@
  * @see https://storybook.js.org/docs/api/main-config/main-config
  */
 
-import { join } from 'node:path';
+import { join } from 'path';
 
 import type { PresetProperty } from '@storybook/types';
 
