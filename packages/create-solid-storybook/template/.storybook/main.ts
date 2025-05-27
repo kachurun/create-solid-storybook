@@ -3,24 +3,19 @@ import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@kachurun/storybook-solid-vite';
 
 export default <StorybookConfig>{
-    stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx'],
+    framework: '@kachurun/storybook-solid-vite',
     addons: [
-        '@storybook/addon-links',
-        '@chromatic-com/storybook',
         '@storybook/addon-docs',
+        '@storybook/addon-links',
+        '@storybook/addon-a11y',
+        '@storybook/addon-vitest',
     ],
-    framework: {
-        name: '@kachurun/storybook-solid-vite',
-        options: {},
-    },
+    stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx'],
     async viteFinal(config) {
         return mergeConfig(config, {
             define: {
                 'process.env': {},
             },
         });
-    },
-    docs: {
-        autodocs: 'tag',
     },
 };

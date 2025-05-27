@@ -26,16 +26,6 @@ cd <folder-name>
 npm run storybook
 ```
 
-> **Note:**
-> In some monorepo setups, if you use a package manager other than npm (such as `bun` or `pnpm`), you may encounter errors related to peerDependencies after scaffolding. In that case, run your package manager's install command in the generated folder:
->
-> ```bash
-> cd <folder-name>
-> bun install # or pnpm install, etc.
-> ```
->
-> In the worst case, you may need to manually update the `package.json` file in your new project to align dependency versions with those used in your monorepo or workspace.
-
 ---
 
 ## 📦 Packages
@@ -47,10 +37,24 @@ A CLI tool to scaffold a new Storybook project for SolidJS.
 **Usage:**
 
 ```bash
-npx create-solid-storybook my-solid-app
+npx create-solid-storybook storybook-solid
+cd storybook-solid
+npm run storybook
 ```
 
 Creates a fully working Solid + Storybook 8 project using Vite and essential addons.
+
+**👉 [See a live demo of the generated project on StackBlitz](https://stackblitz.com/edit/storybook-solidjs)**
+
+> **Note:**
+> In some monorepo setups, if you use a package manager other than npm (such as `bun` or `pnpm`), you may encounter errors related to peerDependencies after scaffolding. In that case, run your package manager's install command in the generated folder:
+>
+> ```bash
+> cd storybook-solid
+> bun install # or pnpm install, depends on your package manager.
+> ```
+>
+> In the worst case, you may need to manually update the `package.json` file in your new project to align dependency versions with those used in your monorepo or workspace.
 
 ---
 
@@ -75,6 +79,7 @@ If you want to wire it up yourself:
 
 ```bash
 npm install --save-dev \
+  storybook \
   @kachurun/storybook-solid-vite \
   @kachurun/storybook-solid \
   @storybook/addon-essentials \
@@ -172,10 +177,10 @@ export default meta
 ```
 .
 ├── packages/
+│   └── create-solid-storybook/ ← CLI tool to scaffold a new Storybook project for SolidJS
+|       └── template/           ← Template project copied to users
 │   ├── storybook-solid-vite/   ← SolidJS framework adapter for Storybook
 │   └── storybook-solid/        ← SolidJS renderer for Storybook
-├── cli/                        ← CLI source for create-solid-storybook
-│   └── template/               ← Template project copied to users
 ```
 
 ---

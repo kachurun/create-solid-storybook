@@ -1,6 +1,6 @@
 {
     "name": "@kachurun/create-solid-storybook",
-    "version": "8.6.6",
+    "version": "0.0.0",
     "private": true,
     "scripts": {
         "version-packages": "changeset version",
@@ -40,7 +40,8 @@
     "description": "SolidJS integration with Storybook",
     "packageManager": "bun@1.1.13",
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "packages/create-solid-storybook/template"
     ],
     "devDependencies": {
         "@changesets/changelog-github": "^0.5.1",

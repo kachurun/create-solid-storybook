@@ -5,31 +5,28 @@
     "scripts": {
         "build": "storybook build",
         "storybook": "storybook dev -p 6006",
+        "test": "vitest --run --update",
         "preview-storybook": "serve storybook-static"
     },
     "devDependencies": {
-        "@kachurun/storybook-solid-vite": "^9.0.0-next.0",
-        "@chromatic-com/storybook": "^3.2.6",
-        "@storybook/addon-links": "next",
+        "@kachurun/storybook-solid-vite": "workspace:*",
+        "@storybook/addon-a11y": "next",
         "@storybook/addon-docs": "next",
+        "@storybook/addon-links": "next",
         "@storybook/addon-vitest": "next",
-        "serve": "^14.2.4",
-        "solid-js": "^1.9.7",
-        "vite": "^6.3.5",
-        "vitest": "^3.0.0",
-        "vite-plugin-solid": "^2.11.6",
+        "@storybook/blocks": "^9.0.0-alpha.17",
+        "@storybook/builder-vite": "next",
         "@tsconfig/strictest": "^2.0.0",
         "@types/node": "^22.15.21",
-        "storybook": "next"
-    },
-    "peerDependencies": {
-        "@storybook/addon-links": "next",
-        "@storybook/addon-docs": "next",
-        "@storybook/addon-vitest": "next",
-        "solid-js": "^1.7.0",
-        "vite": "^5.0.0 || ^6.0.0",
-        "vitest": "^3.0.0",
-        "vite-plugin-solid": "^2.0.0",
-        "@types/node": "*"
+        "@vitest/browser": "^3.1.4",
+        "jsdom": "^26.1.0",
+        "playwright": "^1.52.0",
+        "serve": "^14.2.4",
+        "solid-js": "^1.9.7",
+        "storybook": "next",
+        "typescript": "^5.8.3",
+        "vite": "^6.3.5",
+        "vite-plugin-solid": "^2.11.6",
+        "vitest": "^3.0.0"
     }
 }

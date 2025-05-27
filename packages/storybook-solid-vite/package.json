@@ -1,6 +1,6 @@
 {
     "name": "@kachurun/storybook-solid-vite",
-    "version": "9.0.0-next.0",
+    "version": "9.0.0-next.2",
     "description": "SolidJS integration with Storybook",
     "private": false,
     "keywords": [
@@ -63,7 +63,7 @@
         "types": "tsc -b tsconfig.build.json"
     },
     "devDependencies": {
-        "@kachurun/storybook-solid": "workspace:*",
+        "@kachurun/storybook-solid": "^9.0.0-next.2",
         "@storybook/builder-vite": "next",
         "@storybook/types": "next",
         "solid-js": "~1.9.0",
