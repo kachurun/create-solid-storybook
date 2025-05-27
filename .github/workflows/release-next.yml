@@ -30,6 +30,8 @@ jobs:
 
       - name: Create snapshot versions
         run: bunx changeset version --snapshot next
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Build
         run: bun run build
