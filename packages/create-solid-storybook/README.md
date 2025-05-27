@@ -16,8 +16,14 @@ The easiest way to start using Storybook with SolidJS:
 npx create-solid-storybook <folder-name>
 ```
 
+If you want to use it with Storybook 9 RC, run:
+
+```bash
+npx create-solid-storybook@next <folder-name>
+```
+
 Replace `<folder-name>` with your desired project directory name.
-It will generate a SolidJS project pre-configured with Storybook 8.
+It will generate a SolidJS project pre-configured with Storybook 8 (or Storybook 9 RC if you used the `@next` tag).
 
 Then run:
 
