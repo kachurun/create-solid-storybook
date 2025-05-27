@@ -27,14 +27,14 @@ jobs:
 
       - name: Install deps
         run: bun install
-
+      
+      - name: Build
+        run: bun run build
+        
       - name: Create snapshot versions
         run: bunx changeset version --snapshot next
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-
-      - name: Build
-        run: bun run build
 
       - name: Publish with tag "next"
         run: bunx changeset publish --tag next --registry=https://registry.npmjs.org

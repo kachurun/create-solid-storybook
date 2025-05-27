@@ -65,6 +65,7 @@
         "@types/babel__standalone": "^7.1.9",
         "storybook": "next",
         "@storybook/docs-tools": "next",
+        "@storybook/core": "next",
         "@storybook/global": "^5.0.0",
         "@storybook/preview-api": "next",
         "@storybook/types": "next",

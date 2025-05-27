@@ -1,10 +1,10 @@
 import type { Args, WebRenderer } from '@storybook/types';
 import type { Component, JSXElement } from 'solid-js';
 
-export type { RenderContext } from '@storybook/types';
-export type { StoryContext } from '@storybook/types';
+export type { RenderContext, StoryContext } from '@storybook/types';
 
 export interface SolidRenderer extends WebRenderer {
+    // @ts-expect-error: Fix error in Github actions
     component: Component<this['T']>;
     storyResult: StoryFnSolidReturnType;
 }
