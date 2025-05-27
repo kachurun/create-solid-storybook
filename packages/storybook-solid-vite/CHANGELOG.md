@@ -1,5 +1,16 @@
 # @kachurun/storybook-solid-vite
 
+## 9.0.0
+
+### Major Changes
+
+-   Storybook 9
+
+### Patch Changes
+
+-   2ec9bda: Fix deps
+-   2ec9bda: Working Storybook 9.0.0-rc.4
+
 ## 8.6.7
 
 ### Patch Changes
