@@ -25,5 +25,5 @@
         "rootDir": ".",
         "outDir": "dist"
     },
-    "include": [".storybook/**/*.ts", ".storybook/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx"]
+    "include": [".storybook/**/*.ts", ".storybook/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx", "types/*.d.ts"]
 }

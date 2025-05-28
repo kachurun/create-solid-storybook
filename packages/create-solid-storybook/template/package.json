@@ -15,6 +15,7 @@
         "@storybook/addon-docs": "next",
         "@storybook/addon-links": "next",
         "@storybook/addon-vitest": "next",
+        "@storybook/addon-onboarding": "next",
         "@storybook/core": "next",
         "@storybook/blocks": "next",
         "@storybook/builder-vite": "next",
