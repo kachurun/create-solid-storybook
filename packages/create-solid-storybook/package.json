@@ -2,12 +2,12 @@
     "name": "create-solid-storybook",
     "description": "Scaffold Storybook projects with SolidJS integration",
     "private": false,
-    "version": "9.0.0-rc.0",
+    "version": "9.0.0",
     "main": "./index.mjs",
     "scripts": {
         "build": "exit 0",
         "prepublishOnly": "cp -L ../../README.md ./README.md && bun run clean",
-        "clean": "rm -rf template/node_modules template/storybook-static template/bun.lock .turbo && echo '🧹 cleaned cli dir'"
+        "clean": "rm -rf template/node_modules template/storybook-static template/bun.lock template/package.lock .turbo"
     },
     "repository": {
         "type": "git",

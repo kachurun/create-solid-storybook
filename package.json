@@ -9,7 +9,7 @@
         "build": "turbo run build",
         "dev": "turbo run dev",
         "types": "turbo run types",
-        "clean": "rm -rf .turbo && rm -rf node_modules",
+        "clean": "turbo run clean && rm -rf .turbo node_modules",
         "prepublishOnly": "bun run build"
     },
     "repository": {

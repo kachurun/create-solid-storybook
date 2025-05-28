@@ -1,6 +1,6 @@
 {
     "name": "@kachurun/storybook-solid",
-    "version": "9.0.0-rc.0",
+    "version": "9.0.0",
     "private": false,
     "description": "Storybook SolidJS renderer",
     "keywords": [
@@ -48,7 +48,6 @@
     "types": "dist/index.d.ts",
     "files": [
         "dist/**/*",
-        "template/**/*",
         "README.md",
         "*.js",
         "*.d.ts"
@@ -58,17 +57,18 @@
         "build": "tsup",
         "dev": "tsup --watch",
         "postbuild": "bun run types",
-        "types": "tsc -b tsconfig.build.json"
+        "types": "tsc -b tsconfig.build.json",
+        "clean": "rm -rf dist .turbo node_modules"
     },
     "devDependencies": {
         "@babel/standalone": "^7.26.2",
         "@types/babel__standalone": "^7.1.9",
         "storybook": "^9.0.0",
-        "@storybook/docs-tools": "^9.0.0",
-        "@storybook/core": "^9.0.0",
+        "@storybook/docs-tools": "^9.0.0-alpha.1",
+        "@storybook/core": "^9.0.0-alpha.1",
+        "@storybook/preview-api": "^9.0.0-alpha.1",
+        "@storybook/types": "^9.0.0-alpha.1",
         "@storybook/global": "^5.0.0",
-        "@storybook/preview-api": "^9.0.0",
-        "@storybook/types": "^9.0.0",
         "async-mutex": "^0.5.0",
         "esbuild-plugin-solid": "^0.6.0",
         "type-fest": "^4.41.0",
