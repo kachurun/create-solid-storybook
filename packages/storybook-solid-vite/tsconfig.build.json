@@ -4,6 +4,7 @@
         "declaration": true,
         "emitDeclarationOnly": true,
         "outDir": "dist",
-        "composite": true
+        "composite": true,
+        "tsBuildInfoFile": "./dist/.tsbuildinfo"
     }
 }
