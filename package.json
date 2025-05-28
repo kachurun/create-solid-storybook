@@ -1,6 +1,6 @@
 {
     "name": "@kachurun/create-solid-storybook",
-    "version": "8.6.6",
+    "version": "0.0.0",
     "private": true,
     "scripts": {
         "version-packages": "changeset version",
@@ -9,7 +9,7 @@
         "build": "turbo run build",
         "dev": "turbo run dev",
         "types": "turbo run types",
-        "clean": "rm -rf .turbo && rm -rf node_modules",
+        "clean": "turbo run clean && rm -rf .turbo node_modules",
         "prepublishOnly": "bun run build"
     },
     "repository": {
@@ -31,8 +31,8 @@
         "javascript",
         "typescript"
     ],
-    "author": "",
-    "license": "ISC",
+    "author": "kachurun",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/kachurun/create-solid-storybook/issues"
     },
@@ -45,12 +45,11 @@
     "devDependencies": {
         "@changesets/changelog-github": "^0.5.1",
         "@changesets/cli": "^2.29.4",
-        "@flexbe/eslint-config": "^1.0.9",
         "@tsconfig/strictest": "^2.0.5",
+        "@flexbe/eslint-config": "^1.0.9",
         "bun": "^1.2.14",
         "eslint": "^9.27.0",
         "tsup": "^8.5.0",
-        "turbo": "^2.5.3",
-        "vitest": "^3.1.4"
+        "turbo": "^2.5.3"
     }
 }

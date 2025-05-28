@@ -1,5 +1,29 @@
 # @kachurun/storybook-solid-vite
 
+## 9.0.2
+
+### Patch Changes
+
+-   fix: deps tree
+
+-   Updated dependencies []:
+    -   @kachurun/storybook-solid@9.0.2
+
+## 9.0.1
+
+### Patch Changes
+
+-   Storybook 9
+
+-   Updated dependencies []:
+    -   @kachurun/storybook-solid@9.0.1
+
+## 9.0.0
+
+### Major Changes
+
+-   Storybook 9
+
 ## 8.6.7
 
 ### Patch Changes

@@ -1,0 +1,35 @@
+{
+    "name": "@kachurun/storybook-solid-template",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "build": "storybook build",
+        "storybook": "storybook dev -p 6006",
+        "test": "vitest --run --update",
+        "preview-storybook": "serve storybook-static"
+    },
+    "devDependencies": {
+        "@kachurun/storybook-solid": "^9.0.0-rc.0",
+        "@kachurun/storybook-solid-vite": "^9.0.0-rc.0",
+        "@storybook/addon-a11y": "^9.0.0",
+        "@storybook/addon-docs": "^9.0.0",
+        "@storybook/addon-links": "^9.0.0",
+        "@storybook/addon-onboarding": "^9.0.0",
+        "@storybook/addon-vitest": "^9.0.0",
+        "@storybook/builder-vite": "^9.0.0",
+        "@storybook/blocks": "^9.0.0-alpha.17",
+        "@storybook/core": "^9.0.0-alpha.1",
+        "@tsconfig/strictest": "^2.0.0",
+        "@types/node": "^22.15.21",
+        "@vitest/browser": "^3.1.4",
+        "jsdom": "^26.1.0",
+        "playwright": "^1.52.0",
+        "serve": "^14.2.4",
+        "solid-js": "^1.9.7",
+        "storybook": "^9.0.0",
+        "typescript": "^5.8.3",
+        "vite": "^6.3.5",
+        "vite-plugin-solid": "^2.11.6",
+        "vitest": "^3.0.0"
+    }
+}

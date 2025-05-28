@@ -3,6 +3,7 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => {
     return {
+        tsconfig: './tsconfig.build.json',
         entry: [
             'src/index.ts',
             'src/preset.ts',
@@ -10,8 +11,8 @@ export default defineConfig((options) => {
             'src/entry-preview-docs.ts',
         ],
         format: ['esm', 'cjs'],
-        outDir: 'dist',
         dts: false,
+        outDir: 'dist',
         external: [],
         jsx: 'preserve',
         sourcemap: true,

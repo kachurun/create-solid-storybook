@@ -1,14 +1,15 @@
 node_modules
+storybook-static
 dist
+**/dist/
+
+*.tsbuildinfo
 .turbo
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-storybook-static
-**/dist/
-dist/
 # Do not ignore workflows
 !.github/
 !.github/workflows/
