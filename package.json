@@ -31,8 +31,8 @@
         "javascript",
         "typescript"
     ],
-    "author": "",
-    "license": "ISC",
+    "author": "kachurun",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/kachurun/create-solid-storybook/issues"
     },

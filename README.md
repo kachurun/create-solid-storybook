@@ -16,14 +16,8 @@ The easiest way to start using Storybook with SolidJS:
 npx create-solid-storybook <folder-name>
 ```
 
-If you want to use it with Storybook 9 RC, run:
-
-```bash
-npx create-solid-storybook@next <folder-name>
-```
-
 Replace `<folder-name>` with your desired project directory name.
-It will generate a SolidJS project pre-configured with Storybook 8 (or Storybook 9 RC if you used the `@next` tag).
+It will generate a SolidJS project pre-configured with Storybook 9.
 
 Then run:
 
@@ -88,58 +82,79 @@ npm install --save-dev \
   storybook \
   @kachurun/storybook-solid-vite \
   @kachurun/storybook-solid \
-  @storybook/addon-essentials \
-  @storybook/addon-links \
-  @storybook/addon-interactions \
-  @storybook/addon-viewport \
-  @chromatic-com/storybook
+  @storybook/addon-onboarding \
+  @storybook/addon-docs \
+  @storybook/addon-a11y \
+  @storybook/addon-vitest \
+  @storybook/addon-links
 ```
 
-### 2. `.storybook/main.ts`
+### 2. Configure Storybook init files
+
+`.storybook/main.ts`
 
 ```ts
-import { createRequire } from 'module'
-import { dirname, join } from 'path'
-import { mergeConfig } from 'vite'
-import type { StorybookConfig } from '@kachurun/storybook-solid-vite'
+import { mergeConfig } from 'vite';
 
-const require = createRequire(import.meta.url)
-const getAbsolutePath = (pkg: string) => dirname(require.resolve(join(pkg, 'package.json')))
+import type { StorybookConfig } from '@kachurun/storybook-solid-vite';
 
-const config: StorybookConfig = {
-  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx'],
-  addons: [
-    getAbsolutePath('@storybook/addon-links'),
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-viewport'),
-    getAbsolutePath('@chromatic-com/storybook'),
-    getAbsolutePath('@storybook/addon-interactions'),
-  ],
-  framework: {
-    name: '@kachurun/storybook-solid-vite',
-    options: {},
-  },
-  async viteFinal(config) {
-    return mergeConfig(config, {
-      define: { 'process.env': {} },
-    })
-  },
-  docs: {
-    autodocs: 'tag',
-  },
-}
-
-export default config
+export default <StorybookConfig>{
+    framework: '@kachurun/storybook-solid-vite',
+    addons: [
+        '@storybook/addon-onboarding',
+        '@storybook/addon-docs',
+        '@storybook/addon-a11y',
+        '@storybook/addon-vitest',
+        '@storybook/addon-links',
+    ],
+    stories: [
+        '../stories/**/*.mdx',
+        '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    ],
+    async viteFinal(config) {
+        return mergeConfig(config, {
+            define: {
+                'process.env': {},
+            },
+        });
+    },
+};
 ```
 
-### 3. Example Story
+`.storybook/preview.ts`
+
+```ts
+import type { Preview } from '@kachurun/storybook-solid';
+
+export const tags = ['autodocs'];
+
+const preview: Preview = {
+    parameters: {
+        // automatically create action args for all props that start with "on"
+        actions: { argTypesRegex: '^on.*' },
+        controls: {
+            matchers: {
+                color: /(background|color)$/i,
+                date: /Date$/,
+            },
+        },
+        docs: {
+            codePanel: true,
+        },
+    },
+};
+
+export default preview;
+```
+
+### 3. Create a Storybook Story
 
 `stories/Counter.stories.tsx`
 
 ```tsx
 import { createSignal, createEffect } from 'solid-js'
 import { action } from '@storybook/addon-actions'
-import type { Meta, StoryObj } from '@kachurun/storybook-solid'
+import type { Meta, StoryObj } from '@kachurun/storybook-solid-vite'
 
 const Counter = (props: { count: number; onIncrement?: () => void; onDecrement?: () => void }) => {
   const [count, setCount] = createSignal(props.count)
@@ -188,6 +203,13 @@ export default meta
 │   ├── storybook-solid-vite/   ← SolidJS framework adapter for Storybook
 │   └── storybook-solid/        ← SolidJS renderer for Storybook
 ```
+
+---
+
+## 🙏 Special Thanks
+
+This project is inspired by and builds upon the work of the community-maintained [storybookjs/solidjs](https://github.com/storybookjs/solidjs) project.
+Special thanks to all its contributors for their foundational efforts in bringing Storybook to SolidJS.
 
 ---
 

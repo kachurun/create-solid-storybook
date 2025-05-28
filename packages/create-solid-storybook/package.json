@@ -2,7 +2,7 @@
     "name": "create-solid-storybook",
     "description": "Scaffold Storybook projects with SolidJS integration",
     "private": false,
-    "version": "9.0.0",
+    "version": "9.0.2",
     "main": "./index.mjs",
     "scripts": {
         "build": "exit 0",
@@ -29,8 +29,8 @@
         "javascript",
         "typescript"
     ],
-    "author": "",
-    "license": "ISC",
+    "author": "kachurun",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/kachurun/create-solid-storybook/issues"
     },
