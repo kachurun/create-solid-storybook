@@ -89,7 +89,8 @@
         "solid-js": "*",
         "vite": "^5.0.0 || ^6.0.0",
         "vite-plugin-solid": "*",
-        "tsup-preset-solid": "*"
+        "@storybook/builder-vite": "^9.0.0",
+        "storybook": "^9.0.0"
     },
     "publishConfig": {
         "access": "public"
