@@ -1,5 +1,11 @@
 # @kachurun/storybook-solid-vite
 
+## 9.0.3
+
+### Patch Changes
+
+-   [#5](https://github.com/kachurun/create-solid-storybook/pull/5) [`ffe0538`](https://github.com/kachurun/create-solid-storybook/commit/ffe0538562f5d62599082d5fe8da0afc0cacdc4c) Thanks [@kachurun](https://github.com/kachurun)! - chore: clean up dependencies, move renderer to @kachurun/storybook-solid-vite
+
 ## 9.0.2
 
 ### Patch Changes
