@@ -1,6 +1,7 @@
 node_modules
 storybook-static
 dist
+.tmp-npm-pack
 **/dist/
 
 *.tsbuildinfo
@@ -10,6 +11,8 @@ dist
 .env.development.local
 .env.test.local
 .env.production.local
+.bun.lockb
+
 # Do not ignore workflows
 !.github/
 !.github/workflows/

@@ -13,8 +13,8 @@ import type { StorybookConfig } from './types';
 import type { PresetProperty } from 'storybook/internal/types';
 
 // Helper for getting the location of dependencies.
-const getAbsolutePath = <I extends string>(input: I): I =>
-    dirname(require.resolve(join(input, 'package.json'))) as I;
+const getAbsolutePath = (input: string): string =>
+    dirname(require.resolve(join(input)));
 
 /**
  * Configures Storybook's internal features.
@@ -23,7 +23,7 @@ const getAbsolutePath = <I extends string>(input: I): I =>
  */
 export const core: PresetProperty<'core', StorybookConfig> = {
     builder: getAbsolutePath('@storybook/builder-vite'),
-    renderer: getAbsolutePath('@kachurun/storybook-solid'),
+    renderer: getAbsolutePath('@kachurun/storybook-solid-vite/renderer'),
 };
 
 /**

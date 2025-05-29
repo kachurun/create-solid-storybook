@@ -20,6 +20,6 @@ export default defineConfig((options) => {
         jsx: 'preserve',
         sourcemap: true,
         treeshake: !options.watch,
-        plugins: [solidPlugin()],
+        esbuildPlugins: [solidPlugin()],
     };
 });
