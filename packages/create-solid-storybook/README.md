@@ -90,7 +90,6 @@ npm install --save-dev \
   @kachurun/storybook-solid \
   @storybook/addon-essentials \
   @storybook/addon-links \
-  @storybook/addon-interactions \
   @storybook/addon-viewport \
   @chromatic-com/storybook
 ```
@@ -113,7 +112,6 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-viewport'),
     getAbsolutePath('@chromatic-com/storybook'),
-    getAbsolutePath('@storybook/addon-interactions'),
   ],
   framework: {
     name: '@kachurun/storybook-solid-vite',
@@ -138,7 +136,7 @@ export default config
 
 ```tsx
 import { createSignal, createEffect } from 'solid-js'
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import type { Meta, StoryObj } from '@kachurun/storybook-solid'
 
 const Counter = (props: { count: number; onIncrement?: () => void; onDecrement?: () => void }) => {

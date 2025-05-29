@@ -3,7 +3,14 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => {
     return {
-        entry: ['src/index.ts', 'src/preset.ts'],
+        entry: [
+            'src/index.ts',
+            'src/preset.ts',
+            'src/renderer/index.ts',
+            'src/renderer/preset.ts',
+            'src/renderer/entry-preview.ts',
+            'src/renderer/entry-preview-docs.ts',
+        ],
         format: ['esm', 'cjs'],
         outDir: 'dist',
         dts: false,

@@ -25,3 +25,5 @@ execSync(`cd ${ target } && npm install`, { stdio: 'inherit' });
 console.log('\n✅ Done! Run this to start:\n');
 console.log(`  cd ${ target }`);
 console.log('  npm run storybook\n');
+
+execSync(`cd ${ target } && npm run storybook`, { stdio: 'inherit' });
