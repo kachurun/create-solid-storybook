@@ -137,7 +137,7 @@ export default config
 ```tsx
 import { createSignal, createEffect } from 'solid-js'
 import { action } from 'storybook/actions'
-import type { Meta, StoryObj } from '@kachurun/storybook-solid'
+import type { Meta, StoryObj } from '@kachurun/storybook-solid-vite'
 
 const Counter = (props: { count: number; onIncrement?: () => void; onDecrement?: () => void }) => {
   const [count, setCount] = createSignal(props.count)

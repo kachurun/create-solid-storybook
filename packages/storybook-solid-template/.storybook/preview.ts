@@ -1,4 +1,4 @@
-import type { Preview } from '@kachurun/storybook-solid';
+import type { Preview } from '@kachurun/storybook-solid-vite';
 
 export const tags = ['autodocs'];
 

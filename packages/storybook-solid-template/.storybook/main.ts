@@ -8,8 +8,13 @@ export default <StorybookConfig>{
         '@storybook/addon-onboarding',
         '@storybook/addon-docs',
         '@storybook/addon-a11y',
-        '@storybook/addon-vitest',
         '@storybook/addon-links',
+        {
+            name: '@storybook/addon-vitest',
+            options: {
+                cli: false,
+            },
+        },
     ],
     stories: [
         '../stories/**/*.mdx',
