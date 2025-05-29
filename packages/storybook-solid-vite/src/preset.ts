@@ -10,7 +10,7 @@ import { dirname, join } from 'path';
  */
 
 import type { StorybookConfig } from './types';
-import type { PresetProperty } from '@storybook/types';
+import type { PresetProperty } from 'storybook/internal/types';
 
 // Helper for getting the location of dependencies.
 const getAbsolutePath = <I extends string>(input: I): I =>

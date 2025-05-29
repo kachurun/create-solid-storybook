@@ -3,8 +3,11 @@
     "compilerOptions": {
         "rootDir": "src",
         "outDir": "dist",
-        "emitDeclarationOnly": true
+        "emitDeclarationOnly": true,
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "lib": ["ESNext", "DOM"]
     },
-    "include": ["src/**/*.ts"],
-    "exclude": ["dist", "node_modules"]
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": ["dist"]
 }
