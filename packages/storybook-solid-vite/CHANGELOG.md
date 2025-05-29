@@ -1,5 +1,11 @@
 # @kachurun/storybook-solid-vite
 
+## 9.0.6
+
+### Patch Changes
+
+- [#13](https://github.com/kachurun/create-solid-storybook/pull/13) [`bf17c4a`](https://github.com/kachurun/create-solid-storybook/commit/bf17c4a53f208b27ad61ff67aa5b4bfd43144fba) Thanks [@kachurun](https://github.com/kachurun)! - Better readme files
+
 ## 9.0.5
 
 ## 9.0.4
