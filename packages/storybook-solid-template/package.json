@@ -40,6 +40,13 @@
         "vite-plugin-solid": "^2.11.6",
         "vitest": "^3.0.0"
     },
+    "peerDependencies": {
+        "solid-js": "*",
+        "typescript": "*",
+        "vite-plugin-solid": "*",
+        "vite": "^5.0.0 || ^6.0.0",
+        "vitest": "*"
+    },
     "publishConfig": {
         "access": "public"
     },
