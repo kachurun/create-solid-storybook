@@ -43,9 +43,9 @@ cd storybook-solid
 npm run storybook
 ```
 
-Creates a fully working Solid + Storybook 9 project using Vite and essential addons.
+Creates a fully working Solid + Storybook project using Vite and essential addons.
 
-👉 [See a live demo of the generated project on StackBlitz](https://stackblitz.com/edit/storybook-solidjs)
+👉 [See a live demo of the generated project on StackBlitz](https://stackblitz.com/edit/create-storybook-solid?file=setup.sh)
 
 > **Note:**
 > In some monorepo setups, or if you use a package manager other than npm (such as `bun` or `pnpm`), you may encounter errors related to peerDependencies after scaffolding. In that case, run your package manager's install command in the generated folder:
