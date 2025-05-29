@@ -41,5 +41,14 @@
     },
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "files": [
+        ".storybook/**",
+        "stories/**",
+        "types/**",
+        "package.json",
+        "tsconfig.json",
+        "README.md",
+        "CHANGELOG.md"
+    ]
 }
