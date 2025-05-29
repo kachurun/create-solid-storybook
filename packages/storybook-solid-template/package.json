@@ -1,7 +1,17 @@
 {
     "name": "@kachurun/storybook-solid-template",
-    "version": "0.0.0",
-    "private": true,
+    "version": "9.0.3",
+    "author": "kachurun",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/kachurun/create-solid-storybook/issues"
+    },
+    "homepage": "https://github.com/kachurun/create-solid-storybook#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kachurun/create-solid-storybook.git",
+        "directory": "packages/storybook-solid-template"
+    },
     "scripts": {
         "build": "storybook build",
         "storybook": "storybook dev -p 6006",
@@ -9,7 +19,7 @@
         "preview-storybook": "serve storybook-static"
     },
     "devDependencies": {
-        "@kachurun/storybook-solid-vite": "^9.0.0",
+        "@kachurun/storybook-solid-vite": "^9.0.3",
         "@storybook/addon-a11y": "^9.0.0",
         "@storybook/addon-docs": "^9.0.0",
         "@storybook/addon-links": "^9.0.0",
@@ -28,5 +38,8 @@
         "vite": "^6.3.5",
         "vite-plugin-solid": "^2.11.6",
         "vitest": "^3.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }
