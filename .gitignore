@@ -11,6 +11,8 @@ dist
 .env.development.local
 .env.test.local
 .env.production.local
+.bun.lockb
+
 # Do not ignore workflows
 !.github/
 !.github/workflows/
