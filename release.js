@@ -5,7 +5,7 @@ const type = process.argv[2] || 'patch';
 
 const packages = [
     'create-solid-storybook',
-    '@kachurun/storybook-solid',
+    '@kachurun/storybook-solid-template',
     '@kachurun/storybook-solid-vite',
 ];
 

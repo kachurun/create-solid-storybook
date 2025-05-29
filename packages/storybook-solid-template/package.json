@@ -28,6 +28,7 @@
         "@storybook/builder-vite": "^9.0.0",
         "@tsconfig/strictest": "^2.0.0",
         "@types/node": "^22.15.21",
+        "@vitest/coverage-v8": "^3.1.4",
         "@vitest/browser": "^3.1.4",
         "jsdom": "^26.1.0",
         "playwright": "^1.52.0",
@@ -41,5 +42,14 @@
     },
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "files": [
+        ".storybook/**",
+        "stories/**",
+        "types/**",
+        "package.json",
+        "tsconfig.json",
+        "README.md",
+        "CHANGELOG.md"
+    ]
 }
