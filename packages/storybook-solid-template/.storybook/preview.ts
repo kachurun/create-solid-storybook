@@ -1,8 +1,7 @@
 import type { Preview } from '@kachurun/storybook-solid-vite';
 
-export const tags = ['autodocs'];
-
 const preview: Preview = {
+    tags: ['autodocs'],
     parameters: {
         // automatically create action args for all props that start with "on"
         actions: { argTypesRegex: '^on.*' },

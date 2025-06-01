@@ -27,4 +27,7 @@ export default <StorybookConfig>{
             },
         });
     },
+    docs: {
+        autodocs: true,
+    },
 };
