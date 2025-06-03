@@ -39,10 +39,10 @@ import { fileURLToPath } from 'url';
     cpSync(extractDir, outputDir, { recursive: true });
 
     console.log('📦 Installing dependencies...');
-    execSync(`cd ${ outputDir } && npm install`, { stdio: 'inherit' });
+    execSync('npm install', { cwd: outputDir, stdio: 'inherit' });
 
     console.log('\n✅ Done! Run this to start:\n');
     console.log(`  cd ${ target }`);
     console.log('  npm run storybook\n');
-    execSync(`cd ${ outputDir } && npm run storybook`, { stdio: 'inherit' });
+    execSync('npm run storybook', { cwd: outputDir, stdio: 'inherit' });
 })();
