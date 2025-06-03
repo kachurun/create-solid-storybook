@@ -1,5 +1,5 @@
 import { hasVitePlugins } from '@storybook/builder-vite';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 
 /**
  * A preset is a configuration that enables developers to quickly set up and
@@ -13,8 +13,7 @@ import type { StorybookConfig } from './types';
 import type { PresetProperty } from 'storybook/internal/types';
 
 // Helper for getting the location of dependencies.
-const getAbsolutePath = (input: string): string =>
-    dirname(require.resolve(join(input)));
+const getAbsolutePath = (input: string): string => dirname(require.resolve(input));
 
 /**
  * Configures Storybook's internal features.
