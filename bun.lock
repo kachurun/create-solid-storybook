@@ -19,7 +19,7 @@
     },
     "packages/create-solid-storybook": {
       "name": "create-solid-storybook",
-      "version": "9.0.4",
+      "version": "9.0.6",
       "bin": {
         "create-solid-storybook": "./cli.mjs",
       },
@@ -29,9 +29,9 @@
     },
     "packages/storybook-solid-template": {
       "name": "@kachurun/storybook-solid-template",
-      "version": "9.0.4",
+      "version": "9.0.6",
       "devDependencies": {
-        "@kachurun/storybook-solid-vite": "^9.0.4",
+        "@kachurun/storybook-solid-vite": "^9.0.6",
         "@storybook/addon-a11y": "^9.0.0",
         "@storybook/addon-docs": "^9.0.0",
         "@storybook/addon-links": "^9.0.0",
@@ -62,7 +62,7 @@
     },
     "packages/storybook-solid-vite": {
       "name": "@kachurun/storybook-solid-vite",
-      "version": "9.0.4",
+      "version": "9.0.6",
       "devDependencies": {
         "@babel/standalone": "^7.26.2",
         "@storybook/builder-vite": "^9.0.0",
