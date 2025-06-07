@@ -1,5 +1,11 @@
 # create-solid-storybook
 
+## 9.0.9
+
+### Patch Changes
+
+-   [#28](https://github.com/kachurun/create-solid-storybook/pull/28) [`2c4bc21`](https://github.com/kachurun/create-solid-storybook/commit/2c4bc211952519aeb8bb872326e3b6149c16efd3) Thanks [@kachurun](https://github.com/kachurun)! - fix: Install commander
+
 ## 9.0.8
 
 ### Patch Changes
