@@ -1,5 +1,9 @@
 # 🧩 Storybook Solid Integration
 
+[![create-solid-storybook](https://img.shields.io/npm/v/create-solid-storybook.svg?label=create-solid-storybook)](https://www.npmjs.com/package/create-solid-storybook)
+[![@kachurun/storybook-solid-vite](https://img.shields.io/npm/v/@kachurun/storybook-solid-vite.svg?label=@kachurun/storybook-solid-vite)](https://www.npmjs.com/package/@kachurun/storybook-solid-vite)
+[![@kachurun/storybook-solid-template](https://img.shields.io/npm/v/@kachurun/storybook-solid-template.svg?label=@kachurun/storybook-solid-template)](https://www.npmjs.com/package/@kachurun/storybook-solid-template)
+
 This monorepo provides everything you need to use [Storybook](https://storybook.js.org/) with [SolidJS](https://www.solidjs.com/):
 
 - ✅ Custom renderer and framework integration for Solid
@@ -59,7 +63,7 @@ Creates a fully working Solid + Storybook project using Vite and essential addon
 
 ---
 
-### 2. `@kachurun/storybook-solid-vite` & `@kachurun/storybook-solid`
+### 2. [`@kachurun/storybook-solid-vite`](https://www.npmjs.com/package/@kachurun/storybook-solid-vite) & [`@kachurun/storybook-solid-template`](https://www.npmjs.com/package/@kachurun/storybook-solid-template)
 
 These packages power the integration:
 
