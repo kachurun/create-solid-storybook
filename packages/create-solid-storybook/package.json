@@ -46,6 +46,7 @@
         "README.md"
     ],
     "dependencies": {
+        "commander": "^14.0.0",
         "tar": "^6.1.11"
     },
     "engines": {

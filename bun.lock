@@ -27,6 +27,7 @@
         "create-solid-storybook": "./cli.mjs",
       },
       "dependencies": {
+        "commander": "^14.0.0",
         "tar": "^6.1.11",
       },
     },
