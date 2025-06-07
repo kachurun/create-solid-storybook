@@ -2,7 +2,7 @@
     "name": "create-solid-storybook",
     "description": "Scaffold Storybook projects with SolidJS integration",
     "private": false,
-    "version": "9.0.7",
+    "version": "9.0.8",
     "main": "./cli.mjs",
     "scripts": {
         "build": "exit 0",

@@ -1,5 +1,17 @@
 # create-solid-storybook
 
+## 9.0.8
+
+### Patch Changes
+
+-   [#26](https://github.com/kachurun/create-solid-storybook/pull/26) [`a88c5b3`](https://github.com/kachurun/create-solid-storybook/commit/a88c5b3110c5b22b49f132701cff00b23dbc63d5) Thanks [@kachurun](https://github.com/kachurun)! - fix: Better CLI
+
+-   [#26](https://github.com/kachurun/create-solid-storybook/pull/26) [`a88c5b3`](https://github.com/kachurun/create-solid-storybook/commit/a88c5b3110c5b22b49f132701cff00b23dbc63d5) Thanks [@kachurun](https://github.com/kachurun)! - fix: Tooling doesn't respect the package manager
+
+-   [#26](https://github.com/kachurun/create-solid-storybook/pull/26) [`a88c5b3`](https://github.com/kachurun/create-solid-storybook/commit/a88c5b3110c5b22b49f132701cff00b23dbc63d5) Thanks [@kachurun](https://github.com/kachurun)! - fix: Minor bugfixes
+
+-   [#26](https://github.com/kachurun/create-solid-storybook/pull/26) [`a88c5b3`](https://github.com/kachurun/create-solid-storybook/commit/a88c5b3110c5b22b49f132701cff00b23dbc63d5) Thanks [@kachurun](https://github.com/kachurun)! - feat: argsTypes from TS types
+
 ## 9.0.7
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@kachurun/storybook-solid-template",
-    "version": "9.0.7",
+    "version": "9.0.8",
     "author": "kachurun",
     "license": "MIT",
     "bugs": {
@@ -20,7 +20,7 @@
         "preview-storybook": "serve storybook-static"
     },
     "devDependencies": {
-        "@kachurun/storybook-solid-vite": "^9.0.7",
+        "@kachurun/storybook-solid-vite": "^9.0.8",
         "@storybook/addon-a11y": "^9.0.0",
         "@storybook/addon-docs": "^9.0.0",
         "@storybook/addon-links": "^9.0.0",
