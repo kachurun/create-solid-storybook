@@ -1,5 +1,11 @@
 # @kachurun/storybook-solid-template
 
+## 9.0.9
+
+### Patch Changes
+
+-   [`e8ad8d3`](https://github.com/kachurun/create-solid-storybook/commit/e8ad8d3a881187386c422516188ea4f2a8a7b6d2) Thanks [@kachurun](https://github.com/kachurun)! - fix: Cleanup template + Better scaffolding process
+
 ## 9.0.8
 
 ### Patch Changes
