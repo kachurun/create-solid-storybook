@@ -47,12 +47,15 @@
         "@changesets/cli": "^2.29.4",
         "@flexbe/eslint-config": "^1.0.9",
         "@tsconfig/strictest": "^2.0.5",
+        "@types/escodegen": "^0.0.10",
+        "acorn-walk": "^8.3.4",
         "bun": "^1.2.14",
         "eslint": "^9.27.0",
         "tsup": "^8.5.0",
         "turbo": "^2.5.3"
     },
     "dependencies": {
+        "commander": "^14.0.0",
         "tar": "^7.4.3"
     }
 }

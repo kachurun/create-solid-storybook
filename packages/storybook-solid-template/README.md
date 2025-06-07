@@ -15,6 +15,7 @@ This template provides a ready-to-use Storybook setup for SolidJS, designed to h
 - 🔗 **Component linking** with Links addon
 - 🚀 **Onboarding experience** with Onboarding addon
 - 🧪 **Integrated component testing** with Vitest addon
+- 📝 **Automatic documentation** with Autodocs addon
 
 ## How to Use
 

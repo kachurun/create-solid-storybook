@@ -54,7 +54,6 @@
     "files": [
         ".storybook/**",
         "stories/**",
-        "types/**",
         "package.json",
         "tsconfig.json",
         "vitest.config.ts",

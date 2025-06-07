@@ -23,7 +23,14 @@
         "jsxImportSource": "solid-js",
 
         "rootDir": ".",
-        "outDir": "dist"
+        "outDir": "dist",
+        "typeRoots": ["./stories/types"]
     },
-    "include": [".storybook/**/*.ts", ".storybook/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx", "types/*.d.ts"]
+    "include": [
+        ".storybook/**/*.ts",
+        ".storybook/**/*.tsx",
+        "stories/**/*.ts",
+        "stories/**/*.tsx",
+        "stories/types/*.d.ts"
+    ]
 }
