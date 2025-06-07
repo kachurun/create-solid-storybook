@@ -71,10 +71,10 @@ export const sourceDecorator = (
 
     const docs = ctx?.parameters?.['docs'];
     const src = docs?.source?.originalSource;
-    const name = ctx.title.split('/').at(-1)!;
+    const component = ctx?.component;
 
     try {
-        source = generateSolidSource(name, src);
+        source = generateSolidSource(src, component, ctx.title);
     }
     catch (e) {
         console.error(e);
@@ -86,10 +86,13 @@ export const sourceDecorator = (
 /**
  * Generate Solid JSX from story source.
  */
-export function generateSolidSource(name: string, src: string): string {
+export function generateSolidSource(src: string, component: any, storyName: string): string {
     const ast = parser.parseExpression(src, { plugins: ['jsx', 'typescript'] });
     const { attributes, children, original } = parseArgs(ast);
     const render = parseRender(ast);
+
+    // Use better display name inference
+    const displayName = getDisplayName(component, storyName);
 
     // If there is a render function, display it to the best of our ability.
     if (render) {
@@ -146,16 +149,15 @@ export function generateSolidSource(name: string, src: string): string {
     }
 
     // Otherwise, render a component with the arguments.
-
     const selfClosing = children === null || children.length === 0;
 
-    const component: any = {
+    const componentAst: any = {
         type: 'JSXElement',
         openingElement: {
             type: 'JSXOpeningElement',
             name: {
                 type: 'JSXIdentifier',
-                name,
+                name: displayName,
             },
             attributes,
             selfClosing,
@@ -167,12 +169,12 @@ export function generateSolidSource(name: string, src: string): string {
                 type: 'JSXClosingElement',
                 name: {
                     type: 'JSXIdentifier',
-                    name,
+                    name: displayName,
                 },
             },
     };
 
-    return generate(component, { compact: false }).code;
+    return generate(componentAst, { compact: false }).code;
 }
 
 /**
@@ -403,4 +405,13 @@ function parseMethod(el: any): object | null {
             },
         },
     };
+}
+
+// Helper to infer the best display name for a Solid component
+function getDisplayName(component: any, storyName: string): string {
+    const fromDisplayName = component.name?.replace('[solid-refresh]', '');
+    const fromLocation = component.location?.split('/').at(-1).split('.').slice(0, -1).join('.');
+    const fromStoryName = storyName.split('/').at(-1);
+
+    return fromDisplayName || fromLocation || fromStoryName || 'UnknownComponent';
 }

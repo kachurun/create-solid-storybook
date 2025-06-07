@@ -1,4 +1,3 @@
-import { Semaphore } from 'async-mutex';
 import { ErrorBoundary, onMount } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { render as solidRender } from 'solid-js/web';
@@ -40,13 +39,6 @@ const disposeStory = (storeId: string) => {
     store[storeId]?.disposeFn?.();
 };
 
-/**
- * This function resets the canvas and reactive store for an specific story.
- */
-const remountStory = (storyId: string) => {
-    disposeStory(storyId);
-    cleanStoryStore(storyId);
-};
 
 /**
  * Checks if the story store exists
@@ -62,8 +54,6 @@ const renderSolidApp = (
     canvasElement: SolidRenderer['canvasElement']
 ) => {
     const { storyContext, storyFn, showMain, showException } = renderContext;
-
-    setStore(storyId, 'rendered', true);
 
     const App: Component = () => {
         const Story = storyFn as Component<StoryContext<SolidRenderer>>;
@@ -85,10 +75,11 @@ const renderSolidApp = (
         );
     };
 
-    return solidRender(() => <App />, canvasElement);
-};
+    const disposeFn = solidRender(() => <App />, canvasElement);
 
-const semaphore = new Semaphore(1);
+    setStore(storyId, 'disposeFn', () => disposeFn);
+    setStore(storyId, 'rendered', true);
+};
 
 /**
  * Main renderer function for initializing the SolidJS app with the story content.
@@ -107,20 +98,17 @@ export async function renderToCanvas(
     const { storyContext, forceRemount } = renderContext;
     const storyId = storyContext.canvasElement.id;
 
-    // Story is remounted given the conditions.
+    // Story is remounted given the conditions
     if (forceRemount) {
-        remountStory(storyId);
+        disposeStory(storyId);
+        cleanStoryStore(storyId);
     }
 
     // Story store data is updated
     setStore(storyId, 'args', storyContext.args);
 
     // Story is rendered and store data is created
-    if (storyIsRendered(storyId) === false) {
-        await semaphore.runExclusive(async() => {
-            const disposeFn = renderSolidApp(storyId, renderContext, canvasElement);
-
-            setStore(storyId, prev => ({ ...prev, disposeFn }));
-        });
+    if (!storyIsRendered(storyId)) {
+        renderSolidApp(storyId, renderContext, canvasElement);
     }
 }

@@ -15,6 +15,7 @@
     "scripts": {
         "build": "storybook build",
         "storybook": "storybook dev -p 6006",
+        "dev": "storybook dev -p 6006",
         "test": "vitest --run --update",
         "preview-storybook": "serve storybook-static"
     },
@@ -53,10 +54,10 @@
     "files": [
         ".storybook/**",
         "stories/**",
-        "types/**",
         "package.json",
         "tsconfig.json",
+        "vitest.config.ts",
         "README.md",
-        "CHANGELOG.md"
+        ".gitignore"
     ]
 }

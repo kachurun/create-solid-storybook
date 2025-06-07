@@ -10,6 +10,7 @@ export default defineConfig((options) => {
             'src/renderer/preset.ts',
             'src/renderer/entry-preview.ts',
             'src/renderer/entry-preview-docs.ts',
+            'src/renderer/entry-preview-argtypes.ts',
         ],
         format: ['esm', 'cjs'],
         outDir: 'dist',

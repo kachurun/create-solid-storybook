@@ -30,14 +30,40 @@ export const core: PresetProperty<'core', StorybookConfig> = {
  *
  * @see https://storybook.js.org/docs/api/main-config/main-config-vite-final
  */
-export const viteFinal: StorybookConfig['viteFinal'] = async(config) => {
+export const viteFinal: StorybookConfig['viteFinal'] = async(config, { presets }) => {
     const { plugins = [] } = config;
+
+    // Add docgen plugin
+    const { reactDocgen: reactDocgenOption, reactDocgenTypescriptOptions } = await presets.apply<any>('typescript', {});
+
+    let typescriptPresent = false;
+
+    try {
+        require.resolve('typescript');
+        typescriptPresent = true;
+    }
+    catch (e) {}
+
+    if (reactDocgenOption === 'react-docgen-typescript' && typescriptPresent) {
+        const { default: reactDocgenTypescriptPlugin } = await import('@joshwooding/vite-plugin-react-docgen-typescript');
+
+        // 
+        plugins.push(
+            reactDocgenTypescriptPlugin({
+                ...reactDocgenTypescriptOptions,
+                // We *need* this set so that RDT returns default values in the same format as react-docgen
+                savePropValueAsString: true,
+            })
+        );
+    }
 
     // Add solid plugin if not present
     if (!(await hasVitePlugins(plugins, ['vite-plugin-solid']))) {
         const { default: solidPlugin } = await import('vite-plugin-solid');
 
-        plugins.push(solidPlugin());
+        plugins.push(
+            solidPlugin()
+        );
     }
 
     return config;
