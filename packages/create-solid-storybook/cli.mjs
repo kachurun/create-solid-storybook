@@ -80,20 +80,22 @@ function checkNodeVersion() {
 }
 
 function checkDirectory(target, force) {
-    if (existsSync(target)) {
+    const storybookDir = join(target, '.storybook');
+
+    if (existsSync(storybookDir)) {
         if (!force) {
-            console.error('\n❌ Directory already exists');
-            console.error(`The directory "${ target }" already exists.`);
-            console.error('\nTo create a project in this directory, you can:');
-            console.error('1. Use a different directory name');
-            console.error('2. Remove the existing directory');
-            console.error('3. Use the --force flag to overwrite the directory\n');
+            console.error('\n❌ Storybook already exists');
+            console.error(`The directory "${ target }" already contains a Storybook setup.`);
+            console.error('\nTo create a new Storybook setup in this directory, you can:');
+            console.error('1. Use a different directory');
+            console.error('2. Remove the existing .storybook directory');
+            console.error('3. Use the --force flag to overwrite the existing setup\n');
             console.error('Example:');
             console.error(`  npx create-solid-storybook ${ target } --force\n`);
             process.exit(1);
         }
 
-        console.log(`⚠️  Directory "${ target }" already exists. Using --force to overwrite...`);
+        console.log(`⚠️  Storybook setup already exists in "${ target }". Using --force to overwrite...`);
     }
 }
 
@@ -118,76 +120,155 @@ function getPackageManagerCommands(pkgManager) {
         return {
             install: 'yarn',
             run: 'yarn',
+            add: 'yarn add',
+            addDev: 'yarn add -D',
         };
     }
 
     return {
         install: `${ pkgManager } install`,
         run: `${ pkgManager } run`,
+        add: `${ pkgManager } add`,
+        addDev: `${ pkgManager } add -D`,
     };
 }
 
-function createCleanPackageJson(templatePkgJson, projectName) {
-    const cleanPkgJson = {
-        name: projectName,
-        version: '0.0.0',
-        private: true,
-        scripts: templatePkgJson.scripts,
-        devDependencies: templatePkgJson.devDependencies,
-        peerDependencies: templatePkgJson.peerDependencies,
+function updatePackageJson(target) {
+    const pkgJsonPath = join(target, 'package.json');
+    let packageJson;
+
+    if (existsSync(pkgJsonPath)) {
+        packageJson = JSON.parse(readFileSync(pkgJsonPath, 'utf-8'));
+    }
+    else {
+        packageJson = {
+            name: target,
+            version: '0.0.0',
+            private: true,
+        };
+    }
+
+    // Update scripts
+    packageJson.scripts = {
+        ...packageJson.scripts || {},
+        storybook: 'storybook dev -p 6006',
+        'build-storybook': 'storybook build',
     };
 
-    return JSON.stringify(cleanPkgJson, null, 4);
+    writeFileSync(pkgJsonPath, JSON.stringify(packageJson, null, 2));
 }
 
-(async() => {
+async function copyTemplateFiles(target) {
     const __dirname = dirname(fileURLToPath(import.meta.url));
     const pkg = '@kachurun/storybook-solid-template';
-    const cwd = process.cwd();
-    const outputDir = resolve(cwd, target);
-
-    checkNodeVersion();
-    checkDirectory(outputDir, options.force);
-
     const tempDir = resolve(__dirname, '.tmp-npm-pack');
-    const pkgManager = detectPackageManager();
-    const commands = getPackageManagerCommands(pkgManager);
+    const extractDir = join(tempDir, 'storybook-solid-template');
 
-    console.log(`📦 Using ${ pkgManager } as package manager`);
-
-    // Download .tgz to temp dir
+    // Clean and create temp directory
     rmSync(tempDir, { recursive: true, force: true });
     mkdirSync(tempDir, { recursive: true });
 
+    // Download and extract template
     console.log(`⬇️ Downloading ${ pkg }...`);
     const tgzName = execSync(`npm pack ${ pkg }`, { cwd: tempDir }).toString().trim();
     const tgzPath = join(tempDir, tgzName);
-    const extractDir = join(tempDir, 'pkg');
 
     mkdirSync(extractDir, { recursive: true });
+
     await tar.x({
         file: tgzPath,
         cwd: extractDir,
         strip: 1,
     });
 
-    if (!existsSync(extractDir)) {
-        console.error(`❌ No template/ directory found in ${ pkg }`);
-        process.exit(1);
+    // Copy .storybook directory
+    const storybookDir = join(extractDir, '.storybook');
+    const targetStorybookDir = join(target, '.storybook');
+
+    console.log('📂 Copying .storybook configuration...');
+    cpSync(storybookDir, targetStorybookDir, { recursive: true });
+
+    // Copy stories directory (only if doesn't exist)
+    const storiesDir = join(extractDir, 'stories');
+    const targetStoriesDir = join(target, 'stories');
+
+    if (existsSync(storiesDir)) {
+        if (existsSync(targetStoriesDir)) {
+            console.log('ℹ️  Skipping stories directory (already exists)...');
+        }
+        else {
+            console.log('📂 Copying stories directory...');
+            cpSync(storiesDir, targetStoriesDir, { recursive: true });
+        }
     }
 
-    console.log(`📂 Copying template to: ${ outputDir }`);
-    rmSync(outputDir, { recursive: true, force: true });
-    cpSync(extractDir, outputDir, { recursive: true });
+    // Copy config files (only if don't exist)
+    const configFiles = [
+        { src: 'tsconfig.json', dest: 'tsconfig.json' },
+        { src: 'vitest.config.ts', dest: 'vitest.config.ts' },
+        { src: '.gitignore', dest: '.gitignore' },
+    ];
 
-    // Create clean package.json
-    const templatePkgJson = JSON.parse(readFileSync(join(extractDir, 'package.json'), 'utf-8'));
-    const cleanPkgJson = createCleanPackageJson(templatePkgJson, target);
+    for (const { src, dest } of configFiles) {
+        const srcPath = join(extractDir, src);
+        const destPath = join(target, dest);
 
-    writeFileSync(join(outputDir, 'package.json'), cleanPkgJson);
+        if (existsSync(srcPath)) {
+            if (existsSync(destPath)) {
+                console.log(`ℹ️  Skipping ${ dest } (already exists)...`);
+            }
+            else {
+                console.log(`📂 Copying ${ dest }...`);
+                cpSync(srcPath, destPath);
+            }
+        }
+    }
 
-    console.log(`📦 Installing dependencies using ${ pkgManager }...`);
-    execSync(commands.install, { cwd: outputDir, stdio: 'inherit' });
+    // Clean up temp directory
+    rmSync(tempDir, { recursive: true, force: true });
+}
+
+(async() => {
+    const cwd = process.cwd();
+    const outputDir = resolve(cwd, target);
+
+    checkNodeVersion();
+    checkDirectory(outputDir, options.force);
+
+    const pkgManager = detectPackageManager();
+    const commands = getPackageManagerCommands(pkgManager);
+
+    console.log(`📦 Using ${ pkgManager } as package manager`);
+
+    // Create directory if it doesn't exist
+    if (!existsSync(outputDir)) {
+        mkdirSync(outputDir, { recursive: true });
+    }
+
+    // Update package.json
+    updatePackageJson(outputDir);
+
+    // Copy template files
+    await copyTemplateFiles(outputDir);
+
+    // Install dependencies
+    const packages = [
+        'storybook',
+        '@kachurun/storybook-solid-vite',
+        '@chromatic-com/storybook',
+        '@storybook/addon-onboarding',
+        '@storybook/addon-docs',
+        '@storybook/addon-a11y',
+        '@storybook/addon-links',
+        '@storybook/addon-vitest',
+        '@vitest/coverage-v8',
+        'playwright',
+        'vitest',
+        '@vitest/browser',
+    ];
+
+    console.log('📦 Installing dependencies...');
+    execSync(`${ commands.addDev } ${ packages.join(' ') }`, { cwd: outputDir, stdio: 'inherit' });
 
     console.log('\n✅ Done! Run this to start:\n');
     console.log(`  cd ${ target }`);
