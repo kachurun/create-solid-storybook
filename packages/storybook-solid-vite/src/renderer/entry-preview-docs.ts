@@ -11,6 +11,8 @@ import { sourceDecorator } from './docs/sourceDecorator';
 import type { Decorator, SolidRenderer } from './public-types';
 import type { ArgTypesEnhancer } from 'storybook/internal/types';
 
+export { applyDecorators } from './docs/applyDecorators';
+
 export const parameters = {
     docs: {
         story: { inline: true },

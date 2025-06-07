@@ -11,6 +11,7 @@ export default {
         layout: 'centered',
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+    // tags: ['autodocs'],
     tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
@@ -46,4 +47,27 @@ export const Small = {
         size: 'small',
         label: 'Button',
     },
+};
+
+
+export const InCSFFormat = () => {
+    return <Button size="small" label="Button" />;
+};
+
+
+export const WithDecorator = {
+    args: {
+        size: 'small',
+        label: 'Button',
+        primary: true,
+    },
+    decorators: [
+        (Story: any, context: any) => {
+            return (
+                <div style={ { border: '1px dashed red', padding: '10px' } }>
+                    <Story { ...context.args } />
+                </div>
+            );
+        },
+    ],
 };

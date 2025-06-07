@@ -37,7 +37,9 @@ export const viteFinal: StorybookConfig['viteFinal'] = async(config) => {
     if (!(await hasVitePlugins(plugins, ['vite-plugin-solid']))) {
         const { default: solidPlugin } = await import('vite-plugin-solid');
 
-        plugins.push(solidPlugin());
+        plugins.push(
+            solidPlugin()
+        );
     }
 
     return config;

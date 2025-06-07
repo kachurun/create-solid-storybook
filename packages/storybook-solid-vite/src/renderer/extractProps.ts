@@ -1,11 +1,14 @@
-import { extractComponentProps } from 'storybook/internal/docs-tools';
+import {
+    TypeSystem,
+    extractComponentProps,
+    hasDocgen,
+    type PropDef,
+} from 'storybook/internal/docs-tools';
 
-import type { PropDef } from 'storybook/internal/docs-tools';
+import { enhancePropTypesProps } from './docs/propTypes/handleProp';
+import { enhanceTypeScriptProps } from './docs/typeScript/handleProp';
 
-// FIXME: Replace with actual Solid component type
-// TODO: Implement Solid-specific logic for isMemo, enhancePropTypesProps, enhanceTypeScriptProps if needed
-// For now, stub them out or adapt as needed for Solid
-
+// FIXME
 type Component = any;
 
 export interface PropDefMap {
@@ -13,29 +16,24 @@ export interface PropDefMap {
 }
 
 function getPropDefs(component: Component, section: string): PropDef[] {
-    const processedComponent = component;
+    let processedComponent = component;
 
-    // if (hasDocgen(component)) {
-    //     processedComponent = component;
-    // }
+    if (!hasDocgen(component) && !component.propTypes && component.type != null) {
+        processedComponent = component.type;
+    }
 
     const extractedProps = extractComponentProps(processedComponent, section);
 
-    if (extractedProps.length === 0) {
-        return [];
+    // eslint-disable-next-line ts/switch-exhaustiveness-check
+    switch (extractedProps[0]?.typeSystem) {
+        case TypeSystem.JAVASCRIPT:
+            return enhancePropTypesProps(extractedProps, component);
+        case TypeSystem.TYPESCRIPT:
+            return enhanceTypeScriptProps(extractedProps);
+
+        default:
+            return extractedProps.map(x => x.propDef);
     }
-
-    // switch (extractedProps[0].typeSystem) {
-    //     case TypeSystem.JAVASCRIPT:
-    //         return enhancePropTypesProps(extractedProps, component);
-    //     case TypeSystem.TYPESCRIPT:
-    //         return enhanceTypeScriptProps(extractedProps);
-
-    //     default:
-    //         return extractedProps.map(x => x.propDef);
-    // }
-
-    return extractedProps.map(x => x.propDef);
 }
 
 export const extractProps = (component: Component) => ({

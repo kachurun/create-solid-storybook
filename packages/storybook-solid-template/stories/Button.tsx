@@ -2,6 +2,7 @@ import { mergeProps, splitProps } from 'solid-js';
 import './button.css';
 
 export interface ButtonProps {
+    newPropForDocsTest?: string;
     primary?: boolean;
     backgroundColor?: string;
     size?: 'small' | 'medium' | 'large';

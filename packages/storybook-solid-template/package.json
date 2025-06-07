@@ -57,7 +57,8 @@
         "types/**",
         "package.json",
         "tsconfig.json",
+        "vitest.config.ts",
         "README.md",
-        "CHANGELOG.md"
+        ".gitignore"
     ]
 }

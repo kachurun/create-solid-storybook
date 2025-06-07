@@ -1,6 +1,6 @@
 import { afterAll, describe, expect, test, vi } from 'vitest';
 
-import { generateSolidSource } from './sourceDecorator';
+import { generateSolidSource } from '../docs/sourceDecorator';
 
 test('plain component', () => {
     const newSrc1 = generateSolidSource('{ }', 'Component', 'Component');
