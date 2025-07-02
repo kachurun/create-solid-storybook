@@ -1,5 +1,11 @@
 # @kachurun/storybook-solid-template
 
+## 9.1.0
+
+### Minor Changes
+
+-   [#33](https://github.com/kachurun/create-solid-storybook/pull/33) [`db72c35`](https://github.com/kachurun/create-solid-storybook/commit/db72c3597a40f0904bf24c536e1545ca07f6c73f) Thanks [@kachurun](https://github.com/kachurun)! - publish npm under storybook-solidjs-vite
+
 ## 9.0.9
 
 ### Patch Changes
