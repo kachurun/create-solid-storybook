@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 import { Command } from 'commander';
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'fs';
 import { dirname, join, resolve } from 'path';
-import tar from 'tar';
+import { extract } from 'tar';
 import { fileURLToPath } from 'url';
 
 const program = new Command();
@@ -175,7 +175,7 @@ async function copyTemplateFiles(target) {
 
     mkdirSync(extractDir, { recursive: true });
 
-    await tar.x({
+    await extract({
         file: tgzPath,
         cwd: extractDir,
         strip: 1,
