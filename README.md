@@ -1,7 +1,7 @@
 # 🧩 Storybook Solid Integration
 
 [![create-solid-storybook](https://img.shields.io/npm/v/create-solid-storybook.svg?label=create-solid-storybook)](https://www.npmjs.com/package/create-solid-storybook)
-[![@kachurun/storybook-solid-vite](https://img.shields.io/npm/v/@kachurun/storybook-solid-vite.svg?label=@kachurun/storybook-solid-vite)](https://www.npmjs.com/package/@kachurun/storybook-solid-vite)
+[![storybook-solidjs-vite](https://img.shields.io/npm/v/storybook-solidjs-vite.svg?label=storybook-solidjs-vite)](https://www.npmjs.com/package/storybook-solidjs-vite)
 [![@kachurun/storybook-solid-template](https://img.shields.io/npm/v/@kachurun/storybook-solid-template.svg?label=@kachurun/storybook-solid-template)](https://www.npmjs.com/package/@kachurun/storybook-solid-template)
 
 This monorepo provides everything you need to use [Storybook](https://storybook.js.org/) with [SolidJS](https://www.solidjs.com/):
@@ -63,14 +63,14 @@ Creates a fully working Solid + Storybook project using Vite and essential addon
 
 ---
 
-### 2. [`@kachurun/storybook-solid-vite`](https://www.npmjs.com/package/@kachurun/storybook-solid-vite) & [`@kachurun/storybook-solid-template`](https://www.npmjs.com/package/@kachurun/storybook-solid-template)
+### 2. [`storybook-solidjs-vite`](https://www.npmjs.com/package/storybook-solidjs-vite) & [`@kachurun/storybook-solid-template`](https://www.npmjs.com/package/@kachurun/storybook-solid-template)
 
 These packages power the integration:
 
-| Package                              | Purpose                                       |
-| ------------------------------------ | --------------------------------------------- |
-| `@kachurun/storybook-solid-vite`     | SolidJS framework integration for Storybook 8 |
-| `@kachurun/storybook-solid-template` | Scaffolding template for Storybook            |
+| Package                              | Purpose                                     |
+| ------------------------------------ | ------------------------------------------- |
+| `storybook-solidjs-vite`             | SolidJS framework integration for Storybook |
+| `@kachurun/storybook-solid-template` | Scaffolding template for Storybook          |
 
 Use them manually if you're adding Solid support to an existing Storybook setup.
 
@@ -81,7 +81,7 @@ Example `stories/Counter.stories.tsx`:
 ```tsx
 import { createSignal, createEffect } from 'solid-js';
 import { action } from 'storybook/actions';
-import type { Meta, StoryObj } from '@kachurun/storybook-solid-vite';
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
 
 const Counter = (props: { count: number; onIncrement?: () => void; onDecrement?: () => void }) => {
   const [count, setCount] = createSignal(props.count);
@@ -128,24 +128,6 @@ This repo and its templates are designed to work both as standalone projects and
 - **Monorepo/subdir:** Core dependencies are also listed in `peerDependencies` so your workspace manager can warn you about version mismatches. If you use this template in a subdirectory, ensure the required peer dependencies are installed at the root or hoisted level.
 
 > **Tip:** If you encounter dependency conflicts, align the versions in your root and subproject `package.json` files.
-
----
-
-## 🗂 Repository Structure
-
-```
-.
-├── packages/
-│   └── create-solid-storybook/   # CLI tool to scaffold a new Storybook project for SolidJS
-│   └── storybook-solid-template/ # Template project copied to users
-│   └── storybook-solid-vite/     # SolidJS framework adapter for Storybook
-```
-
----
-
-## 🙏 Special Thanks
-
-This project is inspired by and builds upon the work of the community-maintained [storybookjs/solidjs](https://github.com/storybookjs/solidjs) project. Special thanks to all its contributors for their foundational efforts in bringing Storybook to SolidJS.
 
 ---
 
