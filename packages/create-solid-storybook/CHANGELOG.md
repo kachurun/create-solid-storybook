@@ -1,5 +1,11 @@
 # create-solid-storybook
 
+## 9.1.1
+
+### Patch Changes
+
+-   [#35](https://github.com/kachurun/create-solid-storybook/pull/35) [`75361c2`](https://github.com/kachurun/create-solid-storybook/commit/75361c28dfa12113ca09ee08bd259a841fdecd50) Thanks [@kachurun](https://github.com/kachurun)! - fix: fixed tar.extract
+
 ## 9.1.0
 
 ### Minor Changes
