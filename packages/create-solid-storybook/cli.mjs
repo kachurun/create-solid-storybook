@@ -255,6 +255,7 @@ async function copyTemplateFiles(target) {
     const packages = [
         'storybook',
         'storybook-solidjs-vite',
+        'solid-js',
         '@chromatic-com/storybook',
         '@storybook/addon-onboarding',
         '@storybook/addon-docs',
