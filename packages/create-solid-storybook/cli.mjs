@@ -254,7 +254,7 @@ async function copyTemplateFiles(target) {
     // Install dependencies
     const packages = [
         'storybook',
-        '@kachurun/storybook-solid-vite',
+        'storybook-solidjs-vite',
         '@chromatic-com/storybook',
         '@storybook/addon-onboarding',
         '@storybook/addon-docs',

@@ -2,13 +2,5 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "noEmit": true
-    },
-    "references": [
-        {
-            "path": "./packages/storybook-solid-vite"
-        },
-        {
-            "path": "./packages/storybook-solid"
-        }
-    ]
+    }
 }
