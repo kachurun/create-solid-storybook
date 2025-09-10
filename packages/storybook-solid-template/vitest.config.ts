@@ -1,8 +1,8 @@
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-import solid from 'vite-plugin-solid';
+import solidPlugin from 'vite-plugin-solid';
 import { defineConfig } from 'vitest/config';
 
 const dirname
@@ -10,8 +10,10 @@ const dirname
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-    plugins: [solid()],
+    plugins: [solidPlugin()],
     test: {
+        include: ['stories/**/*.stories.tsx', 'stories/**/*.test.tsx'],
+        exclude: ['stories/**/*.mdx'],
         workspace: [
             {
                 extends: true,
@@ -36,8 +38,6 @@ export default defineConfig({
                     setupFiles: ['.storybook/vitest.setup.ts'],
                 },
             },
-        ],
-        include: ['stories/**/*.stories.tsx', 'stories/**/*.test.tsx'],
-        exclude: ['stories/**/*.mdx'],
+        ]
     },
 });

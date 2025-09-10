@@ -1,16 +1,38 @@
+import path from 'path';
+import type { StorybookConfig } from 'storybook-solidjs-vite';
+ 
+// import { createRequire } from 'module';
+// import { dirname } from 'path';
+// import { fileURLToPath } from 'url';
 import { mergeConfig } from 'vite';
 
-import type { StorybookConfig } from 'storybook-solidjs-vite';
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+// const require = createRequire(import.meta.url);
 
+const getAbsolutePath = (packageName: string): string => path.dirname(import.meta.resolve(path.join(packageName, 'package.json'))).replace(/^file:\/\//, '');
+ 
 export default <StorybookConfig>{
-    framework: 'storybook-solidjs-vite',
+    framework: {
+        name: 'storybook-solidjs-vite',
+        options: {
+            docgen: true,
+            docgenOptions: {
+                shouldExtractLiteralValuesFromEnum: true,
+                propFilter: (prop: any) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+            },
+        },
+    },
+    core: {
+        builder: '@storybook/builder-vite',
+    },
     addons: [
-        '@storybook/addon-onboarding',
-        '@storybook/addon-docs',
-        '@storybook/addon-a11y',
-        '@storybook/addon-links',
+        getAbsolutePath('@storybook/addon-onboarding'),
+        getAbsolutePath('@storybook/addon-docs'),
+        getAbsolutePath('@storybook/addon-a11y'),
+        getAbsolutePath('@storybook/addon-links'),
         {
-            name: '@storybook/addon-vitest',
+            name: getAbsolutePath('@storybook/addon-vitest'),
             options: {
                 cli: false,
             },
@@ -20,22 +42,17 @@ export default <StorybookConfig>{
         '../stories/**/*.mdx',
         '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     ],
-    async viteFinal(config) {
-        return mergeConfig(config, {
-            define: {
-                'process.env': {},
-            },
-        });
-    },
     docs: {
         autodocs: true,
     },
-    typescript: {
-        reactDocgen: 'react-docgen-typescript',
-        reactDocgenTypescriptOptions: {
-            shouldExtractLiteralValuesFromEnum: true,
-            // 👇 Default prop filter, which excludes props from node_modules
-            propFilter: (prop: any) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-        },
+
+    viteFinal: async (config) => {
+        console.log('config', config.plugins);
+        
+        return mergeConfig(config, {
+            plugins: [
+                
+            ]
+        });
     },
 };
