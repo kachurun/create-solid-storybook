@@ -36,7 +36,8 @@
     },
     "homepage": "https://github.com/kachurun/create-solid-storybook#readme",
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "tag": "next"
     },
     "bin": {
         "create-solid-storybook": "./cli.mjs"
