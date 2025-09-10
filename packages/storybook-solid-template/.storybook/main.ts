@@ -1,14 +1,6 @@
 import path from 'path';
-import type { StorybookConfig } from 'storybook-solidjs-vite';
- 
-// import { createRequire } from 'module';
-// import { dirname } from 'path';
-// import { fileURLToPath } from 'url';
-import { mergeConfig } from 'vite';
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-// const require = createRequire(import.meta.url);
+import type { StorybookConfig } from 'storybook-solidjs-vite';
 
 const getAbsolutePath = (packageName: string): string => path.dirname(import.meta.resolve(path.join(packageName, 'package.json'))).replace(/^file:\/\//, '');
  
@@ -17,10 +9,9 @@ export default <StorybookConfig>{
         name: 'storybook-solidjs-vite',
         options: {
             docgen: true,
-            docgenOptions: {
-                shouldExtractLiteralValuesFromEnum: true,
-                propFilter: (prop: any) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-            },
+            // react-docgen-typescript options
+            // see https://github.com/styleguidist/react-docgen-typescript#options
+            // docgenOptions: {},
         },
     },
     core: {
@@ -44,15 +35,5 @@ export default <StorybookConfig>{
     ],
     docs: {
         autodocs: true,
-    },
-
-    viteFinal: async (config) => {
-        console.log('config', config.plugins);
-        
-        return mergeConfig(config, {
-            plugins: [
-                
-            ]
-        });
     },
 };

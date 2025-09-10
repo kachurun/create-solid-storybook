@@ -36,7 +36,8 @@
     "eslint-plugin-storybook": "10.0.0-beta.2"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "next"
   },
   "files": [
     ".storybook/**",
