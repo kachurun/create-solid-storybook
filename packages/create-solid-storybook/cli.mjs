@@ -14,15 +14,15 @@ const configFiles = ['tsconfig.json', 'vite.config.ts', 'vitest.config.ts', '.gi
 
 // Install dependencies
 const packages = [
-    'storybook',
-    'storybook-solidjs-vite',
+    `storybook@${tag}`,
+    `storybook-solidjs-vite@${tag}`,
+    `@storybook/addon-onboarding@${tag}`,
+    `@storybook/addon-docs@${tag}`,
+    `@storybook/addon-a11y@${tag}`,
+    `@storybook/addon-links@${tag}`,
+    `@storybook/addon-vitest@${tag}`,
+    `@chromatic-com/storybook@${tag}`,
     'solid-js',
-    '@chromatic-com/storybook',
-    '@storybook/addon-onboarding',
-    '@storybook/addon-docs',
-    '@storybook/addon-a11y',
-    '@storybook/addon-links',
-    '@storybook/addon-vitest',
     '@vitest/coverage-v8',
     'playwright',
     'vitest',

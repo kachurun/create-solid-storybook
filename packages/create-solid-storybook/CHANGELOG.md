@@ -1,5 +1,17 @@
 # create-solid-storybook
 
+## 10.0.0-beta.1
+
+### Patch Changes
+
+-   fix with npm install correct versions
+
+## 10.0.0-beta.0
+
+### Patch Changes
+
+- Support for Storybook 10 beta.2
+
 ## 9.1.1
 
 ### Patch Changes

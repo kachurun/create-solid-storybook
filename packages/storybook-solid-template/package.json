@@ -1,6 +1,6 @@
 {
   "name": "@kachurun/storybook-solid-template",
-  "version": "10.0.0-beta.0",
+  "version": "10.0.0-beta.1",
   "author": "kachurun",
   "license": "MIT",
   "bugs": {
@@ -32,8 +32,7 @@
     "storybook": "^10.0.0-beta.2",
     "storybook-solidjs-vite": "^9.0.3",
     "solid-js": "^1.9.9",
-    "vitest": "^3.2.4",
-    "eslint-plugin-storybook": "10.0.0-beta.2"
+    "vitest": "^3.2.4"
   },
   "publishConfig": {
     "access": "public",
