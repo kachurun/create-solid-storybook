@@ -1,5 +1,4 @@
 import path from 'path';
-
 import type { StorybookConfig } from 'storybook-solidjs-vite';
 
 const getAbsolutePath = (packageName: string): string => path.dirname(import.meta.resolve(path.join(packageName, 'package.json'))).replace(/^file:\/\//, '');
@@ -13,9 +12,6 @@ export default <StorybookConfig>{
             // see https://github.com/styleguidist/react-docgen-typescript#options
             // docgenOptions: {},
         },
-    },
-    core: {
-        builder: '@storybook/builder-vite',
     },
     addons: [
         getAbsolutePath('@storybook/addon-onboarding'),

@@ -16,6 +16,7 @@ const configFiles = ['tsconfig.json', 'vite.config.ts', 'vitest.config.ts', '.gi
 const packages = [
     `storybook@${tag}`,
     `storybook-solidjs-vite@${tag}`,
+    `@storybook/builder-vite@${tag}`,
     `@storybook/addon-onboarding@${tag}`,
     `@storybook/addon-docs@${tag}`,
     `@storybook/addon-a11y@${tag}`,
@@ -277,5 +278,7 @@ async function copyTemplateFiles(target) {
     console.log('\n✅ Done! Run this to start:\n');
     console.log(`  cd ${ target }`);
     console.log(`  ${ commands.run } storybook\n`);
+    
+    // Run storybook
     execSync(`${ commands.run } storybook`, { cwd: outputDir, stdio: 'inherit' });
 })();
