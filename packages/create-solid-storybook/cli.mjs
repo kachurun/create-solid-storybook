@@ -75,7 +75,7 @@ function checkNodeVersion() {
 
     const __dirname = dirname(fileURLToPath(import.meta.url));
     const pkgJson = JSON.parse(readFileSync(join(__dirname, 'package.json'), 'utf-8'));
-    const requiredVersion = pkgJson.engines.node.replace('>=', '');
+    const engineRequirement = pkgJson.engines.node;
     const currentVersion = process.version.slice(1); // Remove 'v' prefix
 
     const compareVersions = (v1, v2) => {
@@ -94,9 +94,40 @@ function checkNodeVersion() {
         return 0;
     };
 
-    if (compareVersions(currentVersion, requiredVersion) < 0) {
+    const parseVersionRequirement = (requirement) => {
+        // Handle OR conditions (e.g., ">=20.19.0 || >=22.12.0")
+        const conditions = requirement.split('||').map(cond => cond.trim());
+        
+        for (const condition of conditions) {
+            if (condition.startsWith('>=')) {
+                const version = condition.replace('>=', '');
+                if (compareVersions(currentVersion, version) >= 0) {
+                    return true; // Current version satisfies this condition
+                }
+            } else if (condition.startsWith('>')) {
+                const version = condition.replace('>', '');
+                if (compareVersions(currentVersion, version) > 0) {
+                    return true; // Current version satisfies this condition
+                }
+            } else if (condition.startsWith('=')) {
+                const version = condition.replace('=', '');
+                if (compareVersions(currentVersion, version) === 0) {
+                    return true; // Current version satisfies this condition
+                }
+            } else {
+                // Assume it's an exact version match
+                if (compareVersions(currentVersion, condition) === 0) {
+                    return true; // Current version satisfies this condition
+                }
+            }
+        }
+        
+        return false; // No condition was satisfied
+    };
+
+    if (!parseVersionRequirement(engineRequirement)) {
         console.error('\n❌ Node.js version error');
-        console.error(`This project requires Node.js version ${ requiredVersion } or higher.`);
+        console.error(`This project requires Node.js version ${ engineRequirement }.`);
         console.error(`You are currently using Node.js ${ currentVersion }.`);
         console.error('\nTo bypass this check, you can use the --ignore-node-version flag.');
         console.error('However, this may lead to compatibility issues.\n');
