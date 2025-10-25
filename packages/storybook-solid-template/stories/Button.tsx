@@ -1,4 +1,4 @@
-import { mergeProps, splitProps } from 'solid-js';
+import { mergeProps, onCleanup, splitProps } from 'solid-js';
 import './button.css';
 
 export interface ButtonProps {
@@ -15,6 +15,7 @@ export const Button = (_props: ButtonProps) => {
         mergeProps({ primary: false, backgroundColor: null, size: 'medium' }, _props),
         ['primary', 'backgroundColor', 'size', 'label']
     );
+    
     const mode = () => props.primary ? 'storybook-button--primary' : 'storybook-button--secondary';
 
     return (

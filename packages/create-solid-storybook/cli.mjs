@@ -8,6 +8,28 @@ import { fileURLToPath } from 'url';
 
 const program = new Command();
 
+const tag = getTagFromPackageJson();
+
+const configFiles = ['tsconfig.json', 'vite.config.ts', 'vitest.config.ts', '.gitignore'];
+
+// Install dependencies
+const packages = [
+    `storybook@${tag}`,
+    `storybook-solidjs-vite@${tag}`,
+    `@storybook/builder-vite@${tag}`,
+    `@storybook/addon-onboarding@${tag}`,
+    `@storybook/addon-docs@${tag}`,
+    `@storybook/addon-a11y@${tag}`,
+    `@storybook/addon-links@${tag}`,
+    `@storybook/addon-vitest@${tag}`,
+    `@chromatic-com/storybook@${tag}`,
+    'solid-js',
+    '@vitest/coverage-v8',
+    'playwright',
+    'vitest',
+    '@vitest/browser',
+];
+    
 program
     .name('create-solid-storybook')
     .description('Scaffold a new Storybook project with SolidJS integration')
@@ -33,11 +55,16 @@ Examples:
 
 Learn more:
   https://github.com/kachurun/create-solid-storybook
-`)
-    .parse();
+`).parse();
 
 const options = program.opts();
 const target = program.args[0] || 'solid-storybook';
+
+function getTagFromPackageJson() {
+    const __dirname = dirname(fileURLToPath(import.meta.url));
+    const pkgJson = JSON.parse(readFileSync(join(__dirname, 'package.json'), 'utf-8'));
+    return pkgJson.publishConfig?.tag || 'latest';
+}
 
 function checkNodeVersion() {
     if (options.ignoreNodeVersion) {
@@ -160,7 +187,7 @@ function updatePackageJson(target) {
 
 async function copyTemplateFiles(target) {
     const __dirname = dirname(fileURLToPath(import.meta.url));
-    const pkg = '@kachurun/storybook-solid-template';
+    const pkg = `@kachurun/storybook-solid-template@${ tag }`;
     const tempDir = resolve(__dirname, '.tmp-npm-pack');
     const extractDir = join(tempDir, 'storybook-solid-template');
 
@@ -203,22 +230,16 @@ async function copyTemplateFiles(target) {
     }
 
     // Copy config files (only if don't exist)
-    const configFiles = [
-        { src: 'tsconfig.json', dest: 'tsconfig.json' },
-        { src: 'vitest.config.ts', dest: 'vitest.config.ts' },
-        { src: '.gitignore', dest: '.gitignore' },
-    ];
-
-    for (const { src, dest } of configFiles) {
-        const srcPath = join(extractDir, src);
-        const destPath = join(target, dest);
+    for (const filename of configFiles) {
+        const srcPath = join(extractDir, filename);
+        const destPath = join(target, filename);
 
         if (existsSync(srcPath)) {
             if (existsSync(destPath)) {
-                console.log(`ℹ️  Skipping ${ dest } (already exists)...`);
+                console.log(`ℹ️  Skipping ${ filename } (already exists)...`);
             }
             else {
-                console.log(`📂 Copying ${ dest }...`);
+                console.log(`📂 Copying ${ filename }...`);
                 cpSync(srcPath, destPath);
             }
         }
@@ -251,28 +272,13 @@ async function copyTemplateFiles(target) {
     // Copy template files
     await copyTemplateFiles(outputDir);
 
-    // Install dependencies
-    const packages = [
-        'storybook',
-        'storybook-solidjs-vite',
-        'solid-js',
-        '@chromatic-com/storybook',
-        '@storybook/addon-onboarding',
-        '@storybook/addon-docs',
-        '@storybook/addon-a11y',
-        '@storybook/addon-links',
-        '@storybook/addon-vitest',
-        '@vitest/coverage-v8',
-        'playwright',
-        'vitest',
-        '@vitest/browser',
-    ];
-
     console.log('📦 Installing dependencies...');
     execSync(`${ commands.addDev } ${ packages.join(' ') }`, { cwd: outputDir, stdio: 'inherit' });
 
     console.log('\n✅ Done! Run this to start:\n');
     console.log(`  cd ${ target }`);
     console.log(`  ${ commands.run } storybook\n`);
+    
+    // Run storybook
     execSync(`${ commands.run } storybook`, { cwd: outputDir, stdio: 'inherit' });
 })();

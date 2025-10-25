@@ -1,41 +1,27 @@
-import { mergeConfig } from 'vite';
+import path from 'path';
+import { defineMain } from 'storybook-solidjs-vite';
 
-import type { StorybookConfig } from 'storybook-solidjs-vite';
-
-export default <StorybookConfig>{
-    framework: 'storybook-solidjs-vite',
-    addons: [
-        '@storybook/addon-onboarding',
-        '@storybook/addon-docs',
-        '@storybook/addon-a11y',
-        '@storybook/addon-links',
-        {
-            name: '@storybook/addon-vitest',
-            options: {
-                cli: false,
-            },
+const getAbsolutePath = (packageName: string): string => path.dirname(import.meta.resolve(path.join(packageName, 'package.json'))).replace(/^file:\/\//, '');
+ 
+export default defineMain({
+    framework: {
+        name: getAbsolutePath("storybook-solidjs-vite"),
+        options: {
+            // docgen: {
+                // Enabled by default, but you can configure or disable it:
+                //  see https://github.com/styleguidist/react-docgen-typescript#options
+            // },
         },
+    },
+    addons: [
+        getAbsolutePath('@storybook/addon-onboarding'),
+        getAbsolutePath('@storybook/addon-docs'),
+        getAbsolutePath('@storybook/addon-a11y'),
+        getAbsolutePath('@storybook/addon-links'),
+        getAbsolutePath('@storybook/addon-vitest'),
     ],
     stories: [
         '../stories/**/*.mdx',
         '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-    ],
-    async viteFinal(config) {
-        return mergeConfig(config, {
-            define: {
-                'process.env': {},
-            },
-        });
-    },
-    docs: {
-        autodocs: true,
-    },
-    typescript: {
-        reactDocgen: 'react-docgen-typescript',
-        reactDocgenTypescriptOptions: {
-            shouldExtractLiteralValuesFromEnum: true,
-            // 👇 Default prop filter, which excludes props from node_modules
-            propFilter: (prop: any) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-        },
-    },
-};
+    ]
+});

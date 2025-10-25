@@ -1,49 +1,58 @@
 {
-    "name": "@kachurun/storybook-solid-template",
-    "version": "9.1.0",
-    "author": "kachurun",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/kachurun/create-solid-storybook/issues"
-    },
-    "homepage": "https://github.com/kachurun/create-solid-storybook#readme",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/kachurun/create-solid-storybook.git",
-        "directory": "packages/storybook-solid-template"
-    },
-    "scripts": {
-        "build": "storybook build",
-        "storybook": "storybook dev -p 6006",
-        "dev": "storybook dev -p 6006",
-        "test": "vitest --run --update",
-        "preview-storybook": "serve storybook-static"
-    },
-    "devDependencies": {
-        "@chromatic-com/storybook": "^4.0.1",
-        "@storybook/addon-a11y": "^9.0.15",
-        "@storybook/addon-docs": "^9.0.15",
-        "@storybook/addon-links": "^9.0.15",
-        "@storybook/addon-onboarding": "^9.0.15",
-        "@storybook/addon-vitest": "^9.0.15",
-        "@vitest/browser": "^3.2.4",
-        "@vitest/coverage-v8": "^3.2.4",
-        "playwright": "^1.53.2",
-        "storybook": "^9.0.15",
-        "storybook-solidjs-vite": "^9.0.0",
-        "solid-js": "^1.9.7",
-        "vitest": "^3.2.4"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "files": [
-        ".storybook/**",
-        "stories/**",
-        "package.json",
-        "tsconfig.json",
-        "vitest.config.ts",
-        "README.md",
-        ".gitignore"
+  "name": "@kachurun/storybook-solid-template",
+  "version": "10.0.0",
+  "author": "kachurun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kachurun/create-solid-storybook/issues"
+  },
+  "homepage": "https://github.com/kachurun/create-solid-storybook#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kachurun/create-solid-storybook.git",
+    "directory": "packages/storybook-solid-template"
+  },
+  "scripts": {
+    "build": "storybook build",
+    "storybook": "storybook dev -p 6006",
+    "dev": "storybook dev -p 6006",
+    "test": "vitest --run --update",
+    "preview-storybook": "serve storybook-static"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.2.0-next.1",
+    "@storybook/addon-a11y": "^10.0.0-rc.0",
+    "@storybook/addon-docs": "^10.0.0-rc.0",
+    "@storybook/addon-links": "^10.0.0-rc.0",
+    "@storybook/addon-onboarding": "^10.0.0-rc.0",
+    "@storybook/addon-vitest": "^10.0.0-rc.0",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4",
+    "playwright": "^1.55.0",
+    "storybook": "^10.0.0-rc.0",
+    "storybook-solidjs-vite": "^10.0.0-rc.0",
+    "solid-js": "^1.9.9",
+    "vitest": "^3.2.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next"
+  },
+  "files": [
+    ".storybook/**",
+    "stories/**",
+    "package.json",
+    "tsconfig.json",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "README.md",
+    ".gitignore"
+  ],
+  "imports": {
+    "#*": [
+      "./*",
+      "./*.ts",
+      "./*.tsx"
     ]
+  }
 }
