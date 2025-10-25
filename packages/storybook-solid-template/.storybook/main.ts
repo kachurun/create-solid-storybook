@@ -1,16 +1,16 @@
 import path from 'path';
-import type { StorybookConfig } from 'storybook-solidjs-vite';
+import { defineMain } from 'storybook-solidjs-vite';
 
 const getAbsolutePath = (packageName: string): string => path.dirname(import.meta.resolve(path.join(packageName, 'package.json'))).replace(/^file:\/\//, '');
  
-export default <StorybookConfig>{
+export default defineMain({
     framework: {
-        name: 'storybook-solidjs-vite',
+        name: getAbsolutePath("storybook-solidjs-vite"),
         options: {
-            docgen: true,
-            // react-docgen-typescript options
-            // see https://github.com/styleguidist/react-docgen-typescript#options
-            // docgenOptions: {},
+            // docgen: {
+                // Enabled by default, but you can configure or disable it:
+                //  see https://github.com/styleguidist/react-docgen-typescript#options
+            // },
         },
     },
     addons: [
@@ -18,18 +18,10 @@ export default <StorybookConfig>{
         getAbsolutePath('@storybook/addon-docs'),
         getAbsolutePath('@storybook/addon-a11y'),
         getAbsolutePath('@storybook/addon-links'),
-        {
-            name: getAbsolutePath('@storybook/addon-vitest'),
-            options: {
-                cli: false,
-            },
-        },
+        getAbsolutePath('@storybook/addon-vitest'),
     ],
     stories: [
         '../stories/**/*.mdx',
         '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-    ],
-    docs: {
-        autodocs: true,
-    },
-};
+    ]
+});

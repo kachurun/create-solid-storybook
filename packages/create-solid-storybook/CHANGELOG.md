@@ -1,5 +1,11 @@
 # create-solid-storybook
 
+## 10.0.0
+
+### Major Changes
+
+-   Storybook 10 support
+
 ## 10.0.0-beta.1
 
 ### Patch Changes
@@ -10,7 +16,7 @@
 
 ### Patch Changes
 
-- Support for Storybook 10 beta.2
+-   Support for Storybook 10 beta.2
 
 ## 9.1.1
 

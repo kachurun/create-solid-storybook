@@ -1,5 +1,11 @@
 # @kachurun/storybook-solid-template
 
+## 10.0.0
+
+### Major Changes
+
+-   Storybook 10 support
+
 ## 10.0.0-beta.1
 
 ### Patch Changes

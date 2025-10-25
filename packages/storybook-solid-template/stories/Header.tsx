@@ -1,4 +1,4 @@
-import { mergeProps } from 'solid-js';
+import { mergeProps, onCleanup, onMount } from 'solid-js';
 
 import { Button } from './Button';
 import './header.css';
