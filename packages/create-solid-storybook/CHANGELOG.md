@@ -1,5 +1,17 @@
 # create-solid-storybook
 
+## 10.0.3
+
+### Patch Changes
+
+-   chore: Fix deps
+
+## 10.0.2
+
+### Patch Changes
+
+-   Update to Storybook 10 and simplify config
+
 ## 10.0.1
 
 ### Patch Changes
