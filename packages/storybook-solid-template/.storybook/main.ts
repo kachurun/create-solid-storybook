@@ -1,11 +1,8 @@
-import path from 'path';
 import { defineMain } from 'storybook-solidjs-vite';
 
-const getAbsolutePath = (packageName: string): string => path.dirname(import.meta.resolve(path.join(packageName, 'package.json'))).replace(/^file:\/\//, '');
- 
 export default defineMain({
     framework: {
-        name: getAbsolutePath("storybook-solidjs-vite"),
+        name: 'storybook-solidjs-vite',
         options: {
             // docgen: {
                 // Enabled by default, but you can configure or disable it:
@@ -14,11 +11,11 @@ export default defineMain({
         },
     },
     addons: [
-        getAbsolutePath('@storybook/addon-onboarding'),
-        getAbsolutePath('@storybook/addon-docs'),
-        getAbsolutePath('@storybook/addon-a11y'),
-        getAbsolutePath('@storybook/addon-links'),
-        getAbsolutePath('@storybook/addon-vitest'),
+        '@storybook/addon-onboarding',
+        '@storybook/addon-docs',
+        '@storybook/addon-a11y',
+        '@storybook/addon-links',
+        '@storybook/addon-vitest',
     ],
     stories: [
         '../stories/**/*.mdx',

@@ -1,5 +1,11 @@
 # create-solid-storybook
 
+## 10.0.1
+
+### Patch Changes
+
+-   Storybook 10
+
 ## 10.0.0
 
 ### Major Changes
