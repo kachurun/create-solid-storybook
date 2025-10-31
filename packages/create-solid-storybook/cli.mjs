@@ -25,9 +25,10 @@ const packages = [
     `@chromatic-com/storybook@${tag}`,
     'solid-js',
     '@vitest/coverage-v8',
-    'playwright',
     'vitest',
+    'playwright',
     '@vitest/browser',
+    `@vitest/browser-playwright`,
 ];
     
 program
@@ -211,6 +212,16 @@ function updatePackageJson(target) {
         ...packageJson.scripts || {},
         storybook: 'storybook dev -p 6006',
         'build-storybook': 'storybook build',
+    };
+
+    // Update imports
+    packageJson.imports = {
+        ...packageJson.imports || {},
+        '#*': [
+            './*',
+            './*.ts',
+            './*.tsx'
+        ]
     };
 
     writeFileSync(pkgJsonPath, JSON.stringify(packageJson, null, 2));
